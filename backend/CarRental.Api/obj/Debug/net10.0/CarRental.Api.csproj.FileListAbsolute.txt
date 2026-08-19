@@ -164,3 +164,6 @@ C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\n
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
