@@ -1,6 +1,6 @@
 namespace CarRental.Api.DTOs;
 
-public class CreateReservationDto
+public class ChangeReservationDto
 {
     public DateOnly StartDate { get; set; }
 
