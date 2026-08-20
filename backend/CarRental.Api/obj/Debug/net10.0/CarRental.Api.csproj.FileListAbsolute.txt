@@ -167,3 +167,5 @@ C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\n
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\kolon\Desktop\CarRentalRepo\CarRental\backend\CarRental.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll

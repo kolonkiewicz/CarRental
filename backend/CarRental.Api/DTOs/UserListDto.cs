@@ -1,6 +1,6 @@
-namespace CarRental.Api.Models;
+namespace CarRental.Api.DTOs;
 
-public class User
+public class UserListDto
 {
     public int UserId { get; set; }
 
@@ -12,9 +12,6 @@ public class User
 
     public string Phone { get; set; } = string.Empty;
 
-    public string PasswordHashed { get; set; } = string.Empty;
+    public int ReservationCount { get; set; }
 
-    public string Role { get; set; } = string.Empty;
-
-    public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }

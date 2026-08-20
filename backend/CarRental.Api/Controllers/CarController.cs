@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using CarRental.Api.Data;
 using CarRental.Api.DTOs;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Controllers.Api
 {
@@ -61,8 +62,9 @@ namespace CarRental.Controllers.Api
         }
 
         //POST /api/cars
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult AddCar( CreateCarDto dto)
+        public IActionResult CreateCar( CreateCarDto dto)
         {
             var car = new Car
             {
@@ -85,6 +87,7 @@ namespace CarRental.Controllers.Api
         }
 
         //PUT /api/cars/{id}
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public IActionResult ChangeCar( int id, ChangeCarDto dto)
         {
@@ -107,6 +110,7 @@ namespace CarRental.Controllers.Api
             return Ok(car);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteCar( int id)
         {
