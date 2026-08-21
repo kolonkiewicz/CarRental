@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap');
+
+:host {
+  display: block;
+  --primary-red: #d90429;
+  --primary-red-hover: #b80710;
+  --text-light: rgba( 255, 255, 255, 0.8);
+}
+
+/* Navbar */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.nav-gradient{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.logo, .nav-links, .nav-actions, .hamburger-btn {
+  position: relative;
+  z-index: 10;
+}
+
+.logo{
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+
+.logo .highlight {
+  color: var(--primary-red);
+}
+
+/* Desktop Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover{
+  color: var(--primary-red)
+}
+
+/* Button right corner */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-login {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.btn-login:hover{
+  color: #ffffff;
+}
+
+.btn-reserve {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+}
+
+.btn-reserve:hover{
+  background-color: var(--primary-red-hover);
+}
+
+.hamburger-btn {
+    display: none;
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+
+@media ( min-width: 760px ){
+  .navbar{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media ( max-width: 767px ){
+  .nav-links,
+  .nav-actions{
+    display: none;
+  }
+
+  /* Hamburger */
+  .hamburger-btn {
+    display: block;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #070707;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5rem;
+
+    z-index: 40;
+  }
+
+  /* Links mobile menu */
+  .mobile-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--primary-red);
+  }
+
+  /* Login */
+  .mobile-menu .mobile-login {
+    margin-top: 1rem;
+  }
+
+  .mobile-menu .mobile-login:hover {
+    color: #ffffff;
+  }
+
+  /* Reservation */
+  .mobile-menu .mobile-reserve {
+    display: inline-block;
+
+    background-color: var(--primary-red);
+    color: #ffffff;
+
+    padding: 0.75rem 2rem;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  /* Hover Reservation */
+  .mobile-menu .mobile-reserve:hover {
+    background-color: var(--primary-red-hover);
+    color: #ffffff;
+  }
+}

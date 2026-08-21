@@ -1,0 +1,37 @@
+<section class="experience-section">
+  <div class="experience-grid">
+    <!-- Photo Column -->
+    <div class="media-column">
+      <img
+        [src]="carInteriorImg"
+        alt="Wnętrze luksusowego samochodu"
+        class="interior-img"
+      />
+      <div class="media-gradient"></div>
+    </div>
+
+    <!-- Content Colum -->
+    <div class="content-column">
+      <div class="content-wrapper">
+        <p class="section-badge">Doświadczenie</p>
+        <h2 class="section-title">
+          KAŻDY DETAL
+          <br />
+          MA ZNACZENIE
+        </h2>
+        <p class="section-description">
+          Nasze pojazdy są sprawdzane przed każdym wynajmem. Skórzana tapicerka, system nagłośnienia premium, pełna klimatyzacja — standard, nie opcja.
+        </p>
+
+        <ul class="features-list">
+          @for (item of features; track item) {
+            <li class="feature-item">
+              <span class="feature-bullet"></span>
+              {{ item }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

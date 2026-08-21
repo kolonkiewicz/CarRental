@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
+
+:host {
+  --primary-red: #d90429;
+  --primary-red-hover: #b80710;
+  display: block;
+}
+
+.booking-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  max-width: 56rem;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.form-control {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-red);
+}
+
+.date-input {
+  color-scheme: dark;
+}
+
+.bg-option {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.pin-icon, .calendar-icon {
+  left: 0.75rem;
+}
+
+.arrow-icon {
+  right: 0.75rem;
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-search {
+  width: 100%;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-search:hover {
+  background-color: var(--primary-red-hover);
+}
+
+.btn-search:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .booking-card {
+    padding: 2rem;
+  }
+  
+  .booking-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .btn-search {
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .booking-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

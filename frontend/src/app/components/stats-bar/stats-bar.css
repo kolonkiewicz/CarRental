@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&display=swap');
+
+:host {
+  --primary-red: #d90429;
+  display: block;
+}
+
+.stats-wrapper {
+  background-color: var(--primary-red);
+}
+
+.stats-container {
+  max-width: 72rem; 
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stat-item {
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item:nth-child(2n) {
+  border-right: none;
+}
+
+.stat-value {
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.875rem; 
+  line-height: 1;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem; 
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+
+@media (min-width: 768px) {
+  .stats-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stat-item:nth-child(2n) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-item:last-child {
+    border-right: none;
+  }
+}

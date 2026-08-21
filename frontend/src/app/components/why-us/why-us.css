@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&display=swap');
+
+:host {
+  --primary-red: #d90429;
+  --bg-secondary: #0f0f12;
+  --card-bg: rgba(0, 0, 0, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  display: block;
+}
+
+.why-us-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg-secondary);
+}
+
+@media (min-width: 768px) {
+  .why-us-section {
+    padding: 8rem 3rem;
+  }
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  color: var(--primary-red);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+
+/* 4 column grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Benefit card */
+.benefit-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.benefit-card:hover {
+  border-color: rgba(217, 4, 41, 0.4);
+}
+
+.icon-wrapper {
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.benefit-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  display: block;
+}
+
+.benefit-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.benefit-desc {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin: 0;
+}

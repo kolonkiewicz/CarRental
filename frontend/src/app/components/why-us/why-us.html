@@ -1,0 +1,26 @@
+<section class="why-us-section">
+  <div class="container">
+    <!-- Selection header -->
+    <div class="section-header">
+      <p class="section-badge">Dlaczego my</p>
+      <h2 class="section-title">
+        WYNAJMIJ BEZ
+        <br />
+        KOMPROMISÓW
+      </h2>
+    </div>
+
+    <!-- Benefits grip -->
+    <div class="benefits-grid">
+      @for (benefit of benefits; track benefit.title) {
+        <div class="benefit-card">
+          <div class="icon-wrapper">
+            <span class="benefit-icon">{{ benefit.icon }}</span>
+          </div>
+          <h3 class="benefit-title">{{ benefit.title }}</h3>
+          <p class="benefit-desc">{{ benefit.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<section class="opinions-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header">
+      <p class="section-badge">Opinie klientów</p>
+      <h2 class="section-title">
+        CO MÓWIĄ
+        <br />
+        <span class="title-muted">O NAS KLIENCI</span>
+      </h2>
+    </div>
+
+    <!-- Opinion Grid -->
+    <div class="opinions-grid">
+      @for (t of opinion; track t.name) {
+        <div class="opinion-card">
+          <!-- Ocena gwiazdkowa -->
+          <div class="stars-list">
+            @for (star of getStars(t.rating); track $index) {
+              <span class="star-icon">★</span>
+            }
+          </div>
+
+          <!-- Content -->
+          <p class="opinion-text">&ldquo;{{ t.text }}&rdquo;</p>
+
+          <!-- Author -->
+          <div class="author-block">
+            <div class="avatar">
+              {{ t.name[0] }}
+            </div>
+            <div class="author-info">
+              <div class="author-name">{{ t.name }}</div>
+              <div class="author-role">{{ t.role }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

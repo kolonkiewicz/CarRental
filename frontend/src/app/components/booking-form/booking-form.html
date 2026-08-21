@@ -1,0 +1,54 @@
+<div class="booking-card">
+  <div class="booking-grid">
+    <!-- Pick-up location -->
+    <div class="form-group">
+      <label class="form-label">Odbiór</label>
+      <div class="input-wrapper">
+        <span class="icon pin-icon">📍</span>
+        <select class="form-control" [(ngModel)]="pickupLocation">
+          @for (loc of locations; track loc) {
+            <option [value]="loc" class="bg-option">{{ loc }}</option>
+          }
+        </select>
+        <span class="icon arrow-icon">▼</span>
+      </div>
+    </div>
+
+    <!-- Return location -->
+    <div class="form-group">
+      <label class="form-label">Zwrot</label>
+      <div class="input-wrapper">
+        <span class="icon pin-icon">📍</span>
+        <select class="form-control" [(ngModel)]="returnLocation">
+          @for (loc of locations; track loc) {
+            <option [value]="loc" class="bg-option">{{ loc }}</option>
+          }
+        </select>
+        <span class="icon arrow-icon">▼</span>
+      </div>
+    </div>
+
+    <!-- Collection date -->
+    <div class="form-group">
+      <label class="form-label">Data odbioru</label>
+      <div class="input-wrapper">
+        <span class="icon calendar-icon">📅</span>
+        <input type="date" class="form-control date-input" [(ngModel)]="pickupDate" />
+      </div>
+    </div>
+
+    <!-- Return date-->
+    <div class="form-group">
+      <label class="form-label">Data zwrotu</label>
+      <div class="input-wrapper">
+        <span class="icon calendar-icon">📅</span>
+        <input type="date" class="form-control date-input" [(ngModel)]="returnDate" />
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-search" (click)="onSearch()">
+    Szukaj dostępnych aut
+    <span class="btn-arrow">→</span>
+  </button>
+</div>

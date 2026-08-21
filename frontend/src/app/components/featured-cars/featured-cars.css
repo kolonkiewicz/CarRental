@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800;900&display=swap');
+
+:host {
+  --primary-red: #d90429;
+  --bg-dark: #09090b;
+  --card-bg: #121215;
+  --border-color: rgba(255, 255, 255, 0.1);
+  display: block;
+}
+
+.fleet-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg-dark);
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* Header */
+.fleet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .fleet-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.section-badge {
+  color: var(--primary-red);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  color: #ffffff;
+  line-height: 1;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.title-muted {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.see-all-link {
+  color: var(--primary-red);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.2s ease;
+}
+
+.see-all-link:hover {
+  gap: 0.75rem;
+}
+
+/* Mesh */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .fleet-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+.car-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.car-card:hover {
+  border-color: rgba(217, 4, 41, 0.5);
+}
+
+.card-media {
+  position: relative;
+  height: 13rem;
+  background-color: #18181b;
+  overflow: hidden;
+}
+
+.car-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.car-card:hover .car-img {
+  transform: scale(1.05);
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.badge-primary {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.badge-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.car-title {
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  line-height: 1.25;
+}
+
+.car-specs {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Cards / Prize */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-prefix {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.price-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.amount {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.875rem;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.currency {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+}
+
+.btn-book {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.625rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-book:hover {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
