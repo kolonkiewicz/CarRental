@@ -1,19 +1,19 @@
 <div class="car-card">
   <!-- Image and overlay -->
   <div class="card-media">
-    <img [src]="car().img" [alt]="car().name" class="car-img" />
+    <img [src]="car().imageUrl" [alt]="car().brand" class="car-img" />
     <div class="media-overlay"></div>
-    <span class="badge badge-primary">{{ car().badge }}</span>
+    <span [class]="'badge ' + getBadgeClass(car().badge)">{{ car().badge }}</span>
     <span class="badge-category">{{ car().category }}</span>
   </div>
 
   <!-- Card content -->
   <div class="card-body">
-    <h3 class="car-title">{{ car().name }}</h3>
+    <h3 class="car-title">{{ car().brand + car().model }}</h3>
 
     <div class="car-specs">
       <span class="spec-item"><fa-icon [icon]="faUser"></fa-icon> {{ car().seats }} os.</span>
-      <span class="spec-item"><fa-icon [icon]="faGasPump"></fa-icon> {{ car().fuel }}</span>
+      <span class="spec-item"><fa-icon [icon]="faGasPump"></fa-icon> {{ car().fuelType }}</span>
       <span class="spec-item"><fa-icon [icon]="faGauge"></fa-icon> {{ car().range }}</span>
     </div>
 
@@ -21,7 +21,7 @@
       <div class="price-block">
         <span class="price-prefix">od</span>
         <div class="price-value">
-          <span class="amount">{{ car().price }}</span>
+          <span class="amount">{{ car().pricePerDay }}</span>
           <span class="currency">zł / dzień</span>
         </div>
       </div>

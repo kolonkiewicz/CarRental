@@ -1,0 +1,174 @@
+<aside class="filters">
+
+  <!-- Wyszukiwarka -->
+  <div class="filter-group">
+    <div class="search-box">
+      <fa-icon
+        [icon]="faSearch"
+        class="search-icon">
+      </fa-icon>
+
+      <input
+        type="text"
+        placeholder="Szukaj modelu..."
+        class="search-input">
+    </div>
+  </div>
+
+
+  <!-- Kategoria -->
+  <div class="filter-group">
+
+    <h3 class="filter-label">
+      Kategoria
+    </h3>
+
+    <div class="category-list">
+
+      @for (category of categories; track category) {
+
+        <button class="category-btn">
+
+          <span>{{ category }}</span>
+
+          <span class="category-count">
+            0
+          </span>
+
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- Cena -->
+  <div class="filter-group">
+
+    <h3 class="filter-label">
+      Cena za dzień
+    </h3>
+
+    <div class="price-range-header">
+      <span class="price-min">
+        149 zł
+      </span>
+
+      <span class="price-max">
+        do 1000 zł
+      </span>
+    </div>
+
+    <input
+      type="range"
+      min="149"
+      max="1000"
+      step="50"
+      value="1000"
+      class="range-input">
+
+  </div>
+
+
+  <!-- Paliwo -->
+  <div class="filter-group">
+
+    <h3 class="filter-label">
+      Rodzaj paliwa
+    </h3>
+
+    <div class="filter-chips">
+
+      @for (fuel of fuels; track fuel) {
+
+        <button class="chip-btn">
+          {{ fuel }}
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- Skrzynia -->
+  <div class="filter-group">
+
+    <h3 class="filter-label">
+      Skrzynia biegów
+    </h3>
+
+    <div class="button-group">
+
+      @for (transmission of transmissions; track transmission) {
+
+        <button class="group-btn">
+
+          {{ transmission === 'Wszystkie'
+              ? 'Obie'
+              : transmission }}
+
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- Liczba miejsc -->
+  <div class="filter-group">
+
+    <h3 class="filter-label">
+      Liczba miejsc
+    </h3>
+
+    <div class="button-group flex-wrap">
+
+      @for (seat of seatsOptions; track seat) {
+
+        <button class="square-btn">
+
+          {{ seat === 'Wszystkie' ? '–' : seat }}
+
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- Tylko dostępne -->
+  <div class="filter-group">
+
+    <label class="toggle-label">
+
+      <div class="toggle-switch">
+        <div class="toggle-thumb"></div>
+      </div>
+
+      <span class="toggle-text">
+        Tylko dostępne
+      </span>
+
+    </label>
+
+  </div>
+
+
+  <!-- Reset -->
+  <button class="reset-filters-btn">
+
+    <fa-icon [icon]="faRotateLeft"></fa-icon>
+
+    Wyczyść filtry
+
+  </button>
+
+</aside>

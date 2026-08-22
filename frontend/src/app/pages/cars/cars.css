@@ -1,0 +1,43 @@
+
+.fleet-container {
+  max-width: 80rem; 
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-color: #09090b;
+}
+
+
+.fleet-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+@media (min-width: 768px) {
+  .fleet-layout {
+    flex-direction: row;
+    align-items: flex-start; 
+  }
+}
+
+.sidebar-filters {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar-filters {
+    width: 16rem; 
+    position: sticky;
+    top: 6rem; 
+  }
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

@@ -1,10 +1,18 @@
 export interface Car{
-  name: string;
-  badge: string;
+  id: number;
+  brand: string;
+  model: string;
   category: string;
-  img: string;
+  imageUrl: string;
+  year: number;
   seats: number;
-  fuel: string;
+  fuelType: string;
+  transmission: string;
+  power: number;
   range: string;
-  price: number;
+  pricePerDay: number;
+  rating: number;
+  reviewsCount: number;
+  isAvailable: boolean;
+  badge?: string;
 }

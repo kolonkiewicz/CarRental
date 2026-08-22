@@ -17,7 +17,7 @@
 
     <!-- Car cards grid -->
     <div class="featuredcars-grid">
-      @for (car of fleet; track car.name) {
+      @for (car of fleet; track car.id) {
         <app-car-card [car]="car"></app-car-card>
       }
     </div>

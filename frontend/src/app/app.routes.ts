@@ -4,6 +4,7 @@ import { Auth } from './pages/auth/auth';
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { AuthLayout } from './layouts/auth-layout/auth-layout';
 import { Component } from '@angular/core';
+import { Cars } from './pages/cars/cars';
 
 export const routes: Routes = [
     {
@@ -26,5 +27,9 @@ export const routes: Routes = [
             }
         ]
     },
+    {
+        path: 'fleet',
+        component: Cars
+    }
     
 ];

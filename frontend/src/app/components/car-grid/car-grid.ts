@@ -1,24 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { CarCard } from '../car-card/car-card';
 import { Car } from '../../models/car';
 
-import {
-  faArrowRight
-} from '@fortawesome/free-solid-svg-icons';
-
 @Component({
-  selector: 'app-featured-cars',
-  imports: [RouterLink, FaIconComponent, CarCard],
-  templateUrl: './featured-cars.html',
-  styleUrl: './featured-cars.css',
+  selector: 'app-car-grid',
+  imports: [CarCard],
+  templateUrl: './car-grid.html',
+  styleUrl: './car-grid.css',
 })
-export class FeaturedCars {
-  faArrowRight = faArrowRight;
-  
-  fleet: Car[] = [
-    {
+export class CarGrid {cars: Car[] = [
+      {
       id: 1,
       brand: 'Porsche',
       model: '911 GT3',
@@ -36,7 +27,6 @@ export class FeaturedCars {
       isAvailable: true,
       badge: 'Bestseller'
     },
-
     {
       id: 2,
       brand: 'BMW',
@@ -55,7 +45,6 @@ export class FeaturedCars {
       isAvailable: true,
       badge: 'Nowość'
     },
-
     {
       id: 3,
       brand: 'Mercedes-AMG',
