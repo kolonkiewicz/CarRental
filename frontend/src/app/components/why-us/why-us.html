@@ -15,7 +15,7 @@
       @for (benefit of benefits; track benefit.title) {
         <div class="benefit-card">
           <div class="icon-wrapper">
-            <span class="benefit-icon">{{ benefit.icon }}</span>
+            <span class="benefit-icon"><fa-icon [icon]="benefit.icon"></fa-icon> </span>
           </div>
           <h3 class="benefit-title">{{ benefit.title }}</h3>
           <p class="benefit-desc">{{ benefit.desc }}</p>

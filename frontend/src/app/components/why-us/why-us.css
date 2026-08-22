@@ -96,6 +96,10 @@
   display: block;
 }
 
+.benefit-icon fa-icon{
+  color: var(--primary-red);
+}
+
 .benefit-title {
   color: #ffffff;
   font-weight: 700;

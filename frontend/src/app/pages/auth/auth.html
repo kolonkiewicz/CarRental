@@ -1,0 +1,341 @@
+<div class="auth-container">
+
+  <div class="auth-content">
+
+    @if (submitted) {
+
+      <!-- Success state -->
+      <div class="success-state">
+
+        <div class="success-icon">
+          <fa-icon [icon]="faCheck"></fa-icon>
+        </div>
+
+        <h2>
+          {{ tab === 'login' ? 'WITAJ Z POWROTEM!' : 'KONTO UTWORZONE!' }}
+        </h2>
+
+        <p>
+          {{
+            tab === 'login'
+              ? 'Zalogowano pomyślnie. Przekierowanie do panelu klienta...'
+              : 'Rejestracja zakończona. Sprawdź e-mail, aby potwierdzić konto.'
+          }}
+        </p>
+
+        <button
+          type="button"
+          class="btn-submit"
+          (click)="goToHome()"
+        >
+          Przejdź do strony głównej
+          <fa-icon [icon]="faArrowRight"></fa-icon>
+        </button>
+
+      </div>
+
+    } @else {
+
+      <!-- Login / Register tabs -->
+      <div class="auth-tabs">
+
+        <button
+          type="button"
+          [class.active]="tab === 'login'"
+          (click)="switchTab('login')"
+        >
+          Zaloguj się
+        </button>
+
+        <button
+          type="button"
+          [class.active]="tab === 'register'"
+          (click)="switchTab('register')"
+        >
+          Zarejestruj się
+        </button>
+
+      </div>
+
+      <!-- Header -->
+      <h1>
+        {{ tab === 'login' ? 'WITAJ Z POWROTEM' : 'NOWE KONTO' }}
+      </h1>
+
+      <p class="auth-description">
+        {{
+          tab === 'login'
+            ? 'Zaloguj się, aby zarządzać rezerwacjami.'
+            : 'Załóż konto i rezerwuj pojazdy premium.'
+        }}
+      </p>
+
+      <form (ngSubmit)="submit()" #authForm="ngForm" novalidate>
+
+        <!-- Register fields -->
+        @if (tab === 'register') {
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="firstName">Imię</label>
+
+              <div class="input-wrapper">
+                <fa-icon [icon]="faUsers"></fa-icon>
+
+                <input
+                  id="firstName"
+                  type="text"
+                  name="firstName"
+                  [(ngModel)]="firstName"
+                  placeholder="Jan"
+                />
+              </div>
+
+              @if (errors.firstName) {
+                <span class="error">{{ errors.firstName }}</span>
+              }
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Nazwisko</label>
+
+              <div class="input-wrapper">
+                <fa-icon [icon]="faUsers"></fa-icon>
+
+                <input
+                  id="lastName"
+                  type="text"
+                  name="lastName"
+                  [(ngModel)]="lastName"
+                  placeholder="Kowalski"
+                />
+              </div>
+
+              @if (errors.lastName) {
+                <span class="error">{{ errors.lastName }}</span>
+              }
+            </div>
+
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+
+            <label for="phone">Telefon</label>
+
+            <div class="input-wrapper">
+              <fa-icon [icon]="faPhone"></fa-icon>
+
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                [(ngModel)]="phone"
+                placeholder="+48 600 000 000"
+              />
+            </div>
+
+            @if (errors.phone) {
+              <span class="error">{{ errors.phone }}</span>
+            }
+
+          </div>
+        }
+
+        <!-- Email -->
+        <div class="form-group">
+
+          <label for="email">Adres e-mail</label>
+
+          <div class="input-wrapper">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="jan@przyklad.pl"
+            />
+          </div>
+
+          @if (errors.email) {
+            <span class="error">{{ errors.email }}</span>
+          }
+
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+
+          <label for="password">Hasło</label>
+
+          <div class="input-wrapper">
+
+            <fa-icon [icon]="faLock"></fa-icon>
+
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              placeholder="Minimum 8 znaków"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+            >
+              <fa-icon
+                [icon]="showPassword ? faEyeSlash : faEye"
+              ></fa-icon>
+            </button>
+
+          </div>
+
+          @if (errors.password) {
+            <span class="error">{{ errors.password }}</span>
+          }
+
+        </div>
+
+        <!-- Password strength -->
+        @if (tab === 'register' && password.length > 0) {
+
+          <div class="password-strength">
+
+            @for (item of [1, 2, 3, 4]; track item) {
+
+              <div
+                class="strength-bar"
+                [class.active]="item <= passwordStrength"
+              ></div>
+
+            }
+
+          </div>
+        }
+
+        <!-- Confirm password -->
+        @if (tab === 'register') {
+
+          <div class="form-group">
+
+            <label for="confirmPassword">Potwierdź hasło</label>
+
+            <div class="input-wrapper">
+
+              <fa-icon [icon]="faLock"></fa-icon>
+
+              <input
+                id="confirmPassword"
+                [type]="showConfirm ? 'text' : 'password'"
+                name="confirmPassword"
+                [(ngModel)]="confirmPassword"
+                placeholder="Powtórz hasło"
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                (click)="toggleConfirmPassword()"
+              >
+                <fa-icon
+                  [icon]="showConfirm ? faEyeSlash : faEye"
+                ></fa-icon>
+              </button>
+
+            </div>
+
+            @if (errors.confirmPassword) {
+              <span class="error">
+                {{ errors.confirmPassword }}
+              </span>
+            }
+
+          </div>
+        }
+
+        <!-- Remember -->
+        @if (tab === 'login') {
+
+          <div class="login-options">
+
+            <label class="remember">
+              <input
+                type="checkbox"
+                name="remember"
+                [(ngModel)]="remember"
+              />
+
+              <span>Zapamiętaj mnie</span>
+            </label>
+
+            <button type="button" class="forgot-password">
+              Zapomniałeś hasła?
+            </button>
+
+          </div>
+        }
+
+        <!-- Terms -->
+        @if (tab === 'register') {
+
+          <div class="terms">
+
+            <label>
+              <input
+                type="checkbox"
+                name="agree"
+                [(ngModel)]="agree"
+              />
+
+              <span>
+                Akceptuję
+                <button type="button">Regulamin</button>
+                oraz
+                <button type="button">Politykę prywatności</button>
+                VeloDrive.
+              </span>
+            </label>
+
+            @if (errors.agree) {
+              <p class="error">{{ errors.agree }}</p>
+            }
+
+          </div>
+        }
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="btn-submit"
+        >
+          {{ tab === 'login' ? 'Zaloguj się' : 'Utwórz konto' }}
+          <fa-icon [icon]="faArrowRight"></fa-icon>
+        </button>
+      </form>
+      <!-- Divider -->
+      <div class="divider">
+        <span></span>
+        <p>lub</p>
+        <span></span>
+      </div>
+
+      <!-- Switch -->
+      <p class="switch-auth">
+        {{ tab === 'login'
+          ? 'Nie masz jeszcze konta?'
+          : 'Masz już konto?' }}
+        <button
+          type="button"
+          (click)="switchTab(tab === 'login' ? 'register' : 'login')"
+        >
+          {{ tab === 'login' ? 'Zarejestruj się' : 'Zaloguj się' }}
+        </button>
+      </p>
+    }
+  </div>
+</div>

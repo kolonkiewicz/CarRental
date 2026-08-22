@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap');
+
+:host {
+  --primary-red: #d90429;
+  --primary-red-hover: #ff3b30;
+  --bg-dark: #09090b;
+  --input-bg: #1c1c20;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-light: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.45);
+
+  display: block;
+  min-height: 100vh;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--bg-dark);
+}
+
+.auth-content {
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.auth-tabs button {
+  height: 2.75rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-tabs button:hover {
+  color: #ffffff;
+}
+
+.auth-tabs button.active {
+  background-color: var(--primary-red);
+  color: #ffffff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.auth-content h1 {
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 3rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.auth-description {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   FORM
+========================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper > fa-icon {
+  position: absolute;
+  left: 1rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 3.1rem;
+  padding: 0 2.5rem 0 2.75rem;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  outline: none;
+  background-color: var(--input-bg);
+  color: #ffffff;
+  font-size: 0.875rem;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.input-wrapper input:focus {
+  border-color: rgba(217, 4, 41, 0.7);
+  background-color: #202024;
+}
+
+/* =========================
+   PASSWORD BUTTON
+========================= */
+
+.password-toggle {
+  position: absolute;
+  right: 0.85rem;
+
+  border: none;
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+.password-strength {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  margin-top: -0.5rem;
+}
+
+.strength-bar {
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.strength-bar.active {
+  background-color: var(--primary-red);
+}
+
+/* =========================
+   CHECKBOXES (REMEMBER & TERMS)
+========================= */
+
+.remember,
+.terms label {
+  transition: color 0.2s ease;
+}
+
+.remember input,
+.terms input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.remember:hover,
+.terms label:hover {
+  color: #ffffff;
+}
+
+.remember:hover input,
+.terms label:hover input {
+  border-color: #ffffff;
+}
+
+.remember input:checked,
+.terms input:checked {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.remember input:checked::before,
+.terms input:checked::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #ffffff;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* =========================
+   LOGIN OPTIONS & FORGOT PASSWORD
+========================= */
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.25rem;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.forgot-password {
+  border: none;
+  background: transparent;
+  color: var(--primary-red);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+  color: var(--primary-red-hover);
+}
+
+/* =========================
+   TERMS
+========================= */
+
+.terms {
+  margin-top: -0.25rem;
+}
+
+.terms label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.terms button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--primary-red);
+  font-size: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.terms button:hover {
+  color: var(--primary-red-hover);
+  text-decoration: underline;
+}
+
+/* =========================
+   ERRORS
+========================= */
+
+.error {
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.btn-submit {
+  width: 100%;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: none;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #b80710;
+}
+
+.btn-submit:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.divider p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* =========================
+   SWITCH LOGIN / REGISTER
+========================= */
+
+.switch-auth {
+  margin: 1.75rem 0 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.switch-auth button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--primary-red);
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.switch-auth button:hover {
+  color: var(--primary-red-hover);
+  text-decoration: none;
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success-state {
+  text-align: center;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(217, 4, 41, 0.12);
+  border: 1px solid rgba(217, 4, 41, 0.3);
+  color: var(--primary-red);
+  font-size: 1.5rem;
+}
+
+.success-state h2 {
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.success-state p {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .auth-container {
+    padding: 2rem 1rem;
+    align-items: flex-start;
+    padding-top: 3rem;
+  }
+
+  .auth-content {
+    max-width: 100%;
+  }
+
+  .auth-tabs {
+    margin-bottom: 1.75rem;
+  }
+
+  .auth-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .login-options {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+}

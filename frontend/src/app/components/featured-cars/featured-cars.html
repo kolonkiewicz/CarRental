@@ -1,7 +1,7 @@
-<section class="fleet-section">
+<section class="featuredcars-section">
   <div class="container">
     <!-- Header sekcji -->
-    <div class="fleet-header">
+    <div class="featuredcars-header">
       <div>
         <p class="section-badge">Nasza flota</p>
         <h2 class="section-title">
@@ -11,45 +11,14 @@
         </h2>
       </div>
       <a routerLink="/cars" class="see-all-link">
-        Zobacz całą flotę <span class="arrow">→</span>
+        Zobacz całą flotę <span class="arrow"><fa-icon [icon] = "faArrowRight"></fa-icon></span>
       </a>
     </div>
 
     <!-- Car cards grid -->
-    <div class="fleet-grid">
+    <div class="featuredcars-grid">
       @for (car of fleet; track car.name) {
-        <div class="car-card">
-          <!-- Image and overlay -->
-          <div class="card-media">
-            <img [src]="car.img" [alt]="car.name" class="car-img" />
-            <div class="media-overlay"></div>
-            <span class="badge badge-primary">{{ car.badge }}</span>
-            <span class="badge-category">{{ car.category }}</span>
-          </div>
-
-          <!-- Card content -->
-          <div class="card-body">
-            <h3 class="car-title">{{ car.name }}</h3>
-
-            <div class="car-specs">
-              <span class="spec-item">👥 {{ car.seats }} os.</span>
-              <span class="spec-item">⛽ {{ car.fuel }}</span>
-              <span class="spec-item">⚡ {{ car.range }}</span>
-            </div>
-
-            <div class="card-footer">
-              <div class="price-block">
-                <span class="price-prefix">od</span>
-                <div class="price-value">
-                  <span class="amount">{{ car.price }}</span>
-                  <span class="currency">zł / dzień</span>
-                </div>
-              </div>
-
-              <button class="btn-book">Rezerwuj</button>
-            </div>
-          </div>
-        </div>
+        <app-car-card [car]="car"></app-car-card>
       }
     </div>
   </div>

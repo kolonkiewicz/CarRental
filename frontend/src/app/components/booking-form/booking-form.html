@@ -4,7 +4,7 @@
     <div class="form-group">
       <label class="form-label">Odbiór</label>
       <div class="input-wrapper">
-        <span class="icon pin-icon">📍</span>
+        <span class="icon pin-icon"><fa-icon [icon] = "faLocationDot"></fa-icon></span>
         <select class="form-control" [(ngModel)]="pickupLocation">
           @for (loc of locations; track loc) {
             <option [value]="loc" class="bg-option">{{ loc }}</option>
@@ -18,7 +18,7 @@
     <div class="form-group">
       <label class="form-label">Zwrot</label>
       <div class="input-wrapper">
-        <span class="icon pin-icon">📍</span>
+        <span class="icon pin-icon"><fa-icon [icon] = "faLocationDot"></fa-icon></span>
         <select class="form-control" [(ngModel)]="returnLocation">
           @for (loc of locations; track loc) {
             <option [value]="loc" class="bg-option">{{ loc }}</option>
@@ -32,7 +32,7 @@
     <div class="form-group">
       <label class="form-label">Data odbioru</label>
       <div class="input-wrapper">
-        <span class="icon calendar-icon">📅</span>
+        <span class="icon calendar-icon"><fa-icon [icon] = "faCalendar"></fa-icon></span>
         <input type="date" class="form-control date-input" [(ngModel)]="pickupDate" />
       </div>
     </div>
@@ -41,7 +41,7 @@
     <div class="form-group">
       <label class="form-label">Data zwrotu</label>
       <div class="input-wrapper">
-        <span class="icon calendar-icon">📅</span>
+        <span class="icon calendar-icon"><fa-icon [icon] = "faCalendar"></fa-icon></span>
         <input type="date" class="form-control date-input" [(ngModel)]="returnDate" />
       </div>
     </div>
@@ -49,6 +49,6 @@
 
   <button class="btn-search" (click)="onSearch()">
     Szukaj dostępnych aut
-    <span class="btn-arrow">→</span>
+    <span class="btn-arrow"><fa-icon [icon] = "faArrowRight"></fa-icon></span>
   </button>
 </div>

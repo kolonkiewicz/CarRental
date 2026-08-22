@@ -76,6 +76,10 @@
   left: 0.75rem;
 }
 
+.pin-icon, .calendar-icon fa-icon{
+  color: var(--primary-red);
+}
+
 .arrow-icon {
   right: 0.75rem;
   font-size: 0.625rem;

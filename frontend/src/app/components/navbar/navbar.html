@@ -9,16 +9,16 @@
 
   <!-- Desktop Links -->
   <ul class="nav-links">
-    @for (item of menuItems; track item){
+    @for (item of menuItems; track item.label){
       <li>
-        <a href="#">{{ item }}</a>
+        <a [routerLink]="item.route">{{ item.label }}</a>
       </li>
     }
   </ul>
 
   <!-- Desktop Actions -->
   <div class="nav-actions">
-    <a href="#" class="btn-login">Zaloguj się</a>
+    <a routerLink="/auth" class="btn-login">Zaloguj się</a>
     <a href="#" class="btn-reserve">Rezerwuj</a>
   </div>
 
@@ -34,7 +34,7 @@
       <a href="#">{{ item }}</a>
     }
 
-    <a href="#" class="mobile-login">Zaloguj się</a>
+    <a routerLink="/auth" class="mobile-login">Zaloguj się</a>
     <a href="#" class="mobile-reserve">Rezerwuj</a>
   </div>
 }

@@ -1,0 +1,17 @@
+<section class="fleet-header">
+  <div class="container">
+    <nav class="breadcrumb">
+      <span (click)="onNavigateHome()" class="breadcrumb-link">Strona główna</span>
+      <fa-icon [icon]="faChevronRight" class="breadcrumb-icon"></fa-icon>
+      <span class="breadcrumb-current">Flota</span>
+    </nav>
+
+    <h1 class="page-title">
+      WSZYSTKIE <span>POJAZDY</span>
+    </h1>
+
+    <p class="subtitle">
+      {{ totalCars }} pojazdów w naszej flocie · {{ locationsCount }} lokalizacji w Polsce
+    </p>
+  </div>
+</section>

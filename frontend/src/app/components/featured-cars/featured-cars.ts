@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { CarCard } from '../car-card/car-card';
+import { Car } from '../../models/car';
 
-export interface Car{
-  name: string;
-  badge: string;
-  category: string;
-  img: string;
-  seats: number;
-  fuel: string;
-  range: string;
-  price: number;
-}
-
+import {
+  faArrowRight
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-featured-cars',
-  imports: [RouterLink],
+  imports: [RouterLink, FaIconComponent, CarCard],
   templateUrl: './featured-cars.html',
   styleUrl: './featured-cars.css',
 })
 export class FeaturedCars {
+  faArrowRight = faArrowRight;
+  
   fleet: Car[] = [
     {
       name: 'Porsche 911 GT3',
