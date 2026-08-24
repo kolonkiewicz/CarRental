@@ -1,7 +1,10 @@
 <div class="sort-bar">
 
   <div class="results">
-    <span>12 pojazdów</span>
+    <span>
+      {{ carsCount() }}
+      {{ getCarsLabel() }}
+    </span>
   </div>
 
   <div class="sort-control">
@@ -10,10 +13,10 @@
       Sortuj:
     </label>
 
-    <select id="sort">
-      <option value="popular">
-        Najpopularniejsze
-      </option>
+    <select 
+      id="sort"
+      [value]="selectedSort"
+      (change)="onSortChange($any($event.target).value)">
 
       <option value="priceAsc">
         Cena: rosnąco

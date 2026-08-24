@@ -6,14 +6,36 @@
   <div class="fleet-layout">
 
     <aside class="sidebar-filters">
-      <app-car-filter></app-car-filter>
+      <app-car-filter
+        (categorySelected)="onCategorySelected($event)"
+        (priceSelected)="onPriceSelected($event)"
+        (fuelSelected)="onFuelSelected($event)"
+        (transmissionSelected)="onTransmissionSelected($event)"
+        (seatsSelected)="onSeatselected($event)"
+        (availableSelected)="onAvailableSelected($event)"
+        (searchSelected)="onSearchSelected($event)"
+      ></app-car-filter>
     </aside>
 
     <main class="main-content">
-      <app-car-sort></app-car-sort>
+      <app-car-sort
+        [carsCount]="carsCount"
+        (sortSelected)="onSortSelected($event)"
+      ></app-car-sort>
 
       <section class="cars-grid-container">
-        <app-car-grid></app-car-grid>
+        <app-car-grid
+          [selectedCategory]="selectedCategory"
+          [maxPrice]="maxPrice"
+          [selectedFuel]="selectedFuel"
+          [selectedTransmission]="selectedTransmission"
+          [selectedSeats]="selectedSeats"
+          [availableOnly]="availableOnly"
+          [searchTerm]="searchTerm"
+          [selectedSort]="selectedSort"
+          (carsCount)="onCarsCountChanged($event)"
+          >
+        </app-car-grid>
       </section>
     </main>
   </div>

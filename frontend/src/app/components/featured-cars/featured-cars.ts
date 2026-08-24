@@ -27,6 +27,7 @@ export class FeaturedCars {
       year: 2024,
       seats: 2,
       fuelType: 'Benzyna',
+      description: 'dsadasd',
       transmission: 'Automat',
       power: 510,
       range: '450 KM',
@@ -34,6 +35,7 @@ export class FeaturedCars {
       rating: 4.9,
       reviewsCount: 32,
       isAvailable: true,
+      isFeatured: false,
       badge: 'Bestseller'
     },
 
@@ -47,12 +49,14 @@ export class FeaturedCars {
       seats: 5,
       fuelType: 'Benzyna',
       transmission: 'Automat',
+      description: 'dsadasd',
       power: 625,
       range: '520 KM',
       pricePerDay: 999,
       rating: 4.8,
       reviewsCount: 24,
       isAvailable: true,
+      isFeatured: false,
       badge: 'Nowość'
     },
 
@@ -62,6 +66,7 @@ export class FeaturedCars {
       model: 'G63',
       category: 'SUV',
       imageUrl: '/images/g63.jpg',
+      description: 'dsadasd',
       year: 2024,
       seats: 5,
       fuelType: 'Benzyna',
@@ -72,6 +77,7 @@ export class FeaturedCars {
       rating: 4.9,
       reviewsCount: 18,
       isAvailable: true,
+      isFeatured: false,
       badge: 'Premium'
     }
   ];

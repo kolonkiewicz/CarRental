@@ -1,0 +1,9 @@
+<nav class="breadcrumb-bar">
+  <div class="breadcrumb-container">
+    <button type="button" (click)="onBack()" class="breadcrumb-btn">Flota</button>
+    <span class="chevron"><fa-icon [icon]="faChevronRight" class="breadcrumb-icon"></fa-icon></span>
+    <span class="breadcrumb-category">{{ category }}</span>
+    <span class="chevron"><fa-icon [icon]="faChevronRight" class="breadcrumb-icon"></fa-icon></span>
+    <span class="breadcrumb-current">{{ brand }} {{ model }}</span>
+  </div>
+</nav>

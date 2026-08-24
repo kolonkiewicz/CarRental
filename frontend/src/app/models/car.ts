@@ -4,6 +4,7 @@ export interface Car{
   model: string;
   category: string;
   imageUrl: string;
+  description: string;
   year: number;
   seats: number;
   fuelType: string;
@@ -13,6 +14,7 @@ export interface Car{
   pricePerDay: number;
   rating: number;
   reviewsCount: number;
+  isFeatured: boolean;
   isAvailable: boolean;
   badge?: string;
 }

@@ -1,6 +1,8 @@
+
+
 <div class="car-grid">
 
-  @for (car of cars; track car.brand + car.model) {
+  @for (car of filteredCars; track car.id) {
     <app-car-card [car]="car"></app-car-card>
   }
 

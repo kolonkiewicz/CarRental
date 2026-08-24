@@ -23,5 +23,8 @@ public class CarRentalDbContext : DbContext
         modelBuilder.Entity<Reservation>()
             .Property( r => r.TotalPrice)
             .HasPrecision(10, 2);
+            
+        CarSeedData.Seed(modelBuilder);
     }
+
 }

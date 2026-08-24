@@ -27,13 +27,24 @@ namespace CarRental.Controllers.Api
             var cars = _context.Cars
                 .Select(c => new
                 {
-                    CarId = c.CarId,
+                    Id = c.CarId,
                     Brand = c.Brand,
                     Model = c.Model,
+                    Category = c.Category,
+                    ImageUrl = c.ImageUrl,
                     Year = c.Year,
+                    Seats = c.Seats,
+                    FuelType = c.FuelType,
+                    Transmission = c.Transmission,
+                    Power = c.Power,
+                    Range = c.Range,
                     Description = c.Description,
                     PricePerDay = c.PricePerDay,
-                    IsAvailable = c.IsAvailable
+                    Rating = c.Rating,
+                    ReviewsCount = c.ReviewsCount,
+                    IsFeatured = c.IsFeatured,
+                    IsAvailable = c.IsAvailable,
+                    Badge = c.Badge
                 }).ToList();
             return Ok(cars);
         }
@@ -54,7 +65,7 @@ namespace CarRental.Controllers.Api
                     PricePerDay = c.PricePerDay,
                     IsAvailable = c.IsAvailable
                 }).FirstOrDefault();
-            if ( car == null)
+            if (car == null)
             {
                 return NotFound();
             }
@@ -64,7 +75,7 @@ namespace CarRental.Controllers.Api
         //POST /api/cars
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult CreateCar( CreateCarDto dto)
+        public IActionResult CreateCar(CreateCarDto dto)
         {
             var car = new Car
             {
@@ -81,7 +92,7 @@ namespace CarRental.Controllers.Api
 
             return CreatedAtAction(
                 nameof(GetCarId),
-                new { id = car.CarId},
+                new { id = car.CarId },
                 car
             );
         }
@@ -89,9 +100,9 @@ namespace CarRental.Controllers.Api
         //PUT /api/cars/{id}
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public IActionResult ChangeCar( int id, ChangeCarDto dto)
+        public IActionResult ChangeCar(int id, ChangeCarDto dto)
         {
-            var car = _context.Cars.FirstOrDefault( c => c.CarId == id);
+            var car = _context.Cars.FirstOrDefault(c => c.CarId == id);
 
             if (car == null)
             {
@@ -112,11 +123,11 @@ namespace CarRental.Controllers.Api
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
-        public IActionResult DeleteCar( int id)
+        public IActionResult DeleteCar(int id)
         {
-            var car = _context.Cars.FirstOrDefault( c => c.CarId == id);
+            var car = _context.Cars.FirstOrDefault(c => c.CarId == id);
 
-             if ( car == null)
+            if (car == null)
             {
                 return NotFound();
             }
@@ -125,7 +136,73 @@ namespace CarRental.Controllers.Api
             _context.SaveChanges();
 
             return NoContent();
+        }
 
+        //GET   api/cars/categories
+        [HttpGet("categories")]
+        public IActionResult GetCategories()
+        {
+            var categories = _context.Cars
+                .Select(c => c.Category)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToList();
+
+            return Ok(categories);
+        }
+
+        //get api/cars/price-range
+        [HttpGet("price-range")]
+        public async Task<IActionResult> GetPriceRange()
+        {
+            var minPrice = await _context.Cars.MinAsync(c => c.PricePerDay);
+
+            var maxPrice = await _context.Cars.MaxAsync(c => c.PricePerDay);
+
+            return Ok(new
+            {
+                minPrice,
+                maxPrice
+            });
+        }
+
+        //GET api/cars/fuels
+        [HttpGet("fuels")]
+        public async Task<IActionResult> GetFuels()
+        {
+            var fuels = await _context.Cars
+                .Select(c => c.FuelType)
+                .Distinct()
+                .OrderBy(f => f)
+                .ToListAsync();
+
+            return Ok(fuels);
+        }
+
+        //GET api/cars/transmissions
+        [HttpGet("transmissions")]
+        public async Task<IActionResult> GetTransmissions()
+        {
+            var transmissions = await _context.Cars
+                .Select(c => c.Transmission)
+                .Distinct()
+                .OrderBy(t => t)
+                .ToListAsync();
+
+            return Ok(transmissions);
+        }
+
+        //GET api/cars/seats
+        [HttpGet("seats")]
+        public async Task<IActionResult> GetSeats()
+        {
+            var seats = await _context.Cars
+                .Select(c => c.Seats)
+                .Distinct()
+                .OrderBy(s => s)
+                .ToListAsync();
+
+            return Ok(seats);
         }
 
     }

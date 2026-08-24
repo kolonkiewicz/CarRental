@@ -11,7 +11,7 @@ export class Navbar {
   menuOpen: boolean = false;
 
   menuItems = [
-    { label: 'Flota', route: '/' },
+    { label: 'Flota', route: '/fleet' },
     { label: 'Lokalizacje', route: '/' },
     { label: 'Oferty', route: '/' },
     { label: 'O nas', route: '/' },

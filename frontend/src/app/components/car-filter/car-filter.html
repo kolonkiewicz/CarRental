@@ -1,6 +1,16 @@
 <aside class="filters">
 
-  <!-- Wyszukiwarka -->
+   <div class="filter-header">
+    <fa-icon [icon]="faSliders"></fa-icon>
+    <span>FILTRY</span>
+    @if (activeFiltersCount > 0) {
+    <span class="filter-count">
+      {{ activeFiltersCount }}
+    </span>
+  }
+  </div>
+
+  <!-- Search -->
   <div class="filter-group">
     <div class="search-box">
       <fa-icon
@@ -11,12 +21,14 @@
       <input
         type="text"
         placeholder="Szukaj modelu..."
-        class="search-input">
+        class="search-input"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange()">
     </div>
   </div>
 
 
-  <!-- Kategoria -->
+  <!-- Category -->
   <div class="filter-group">
 
     <h3 class="filter-label">
@@ -27,12 +39,16 @@
 
       @for (category of categories; track category) {
 
-        <button class="category-btn">
+        <button 
+          class="category-btn"
+          (click)="onCategoryChange(category)"
+          [class.active] = "category === selectedCategory"
+        >
 
           <span>{{ category }}</span>
 
           <span class="category-count">
-            0
+            {{ getCategoryCount( category ) }}
           </span>
 
         </button>
@@ -44,7 +60,7 @@
   </div>
 
 
-  <!-- Cena -->
+  <!-- Prize -->
   <div class="filter-group">
 
     <h3 class="filter-label">
@@ -53,26 +69,27 @@
 
     <div class="price-range-header">
       <span class="price-min">
-        149 zł
+        {{ minPrice }} zł
       </span>
 
       <span class="price-max">
-        do 1000 zł
+        do {{ selectedMaxPrice }} zł
       </span>
     </div>
 
     <input
       type="range"
-      min="149"
-      max="1000"
-      step="50"
-      value="1000"
+      [min]="minPrice"
+      [max]="maxPrice"
+      [step]="50"
+      [(ngModel)]="selectedMaxPrice"
+      (ngModelChange) = "onPriceChange()"
       class="range-input">
 
   </div>
 
 
-  <!-- Paliwo -->
+  <!-- Fuel -->
   <div class="filter-group">
 
     <h3 class="filter-label">
@@ -83,7 +100,10 @@
 
       @for (fuel of fuels; track fuel) {
 
-        <button class="chip-btn">
+        <button 
+          class="chip-btn"
+          (click)="onFuelChange(fuel)"
+          [class.active]="fuel === selectedFuel">
           {{ fuel }}
         </button>
 
@@ -94,7 +114,7 @@
   </div>
 
 
-  <!-- Skrzynia -->
+  <!-- Transmission -->
   <div class="filter-group">
 
     <h3 class="filter-label">
@@ -105,9 +125,11 @@
 
       @for (transmission of transmissions; track transmission) {
 
-        <button class="group-btn">
+        <button class="group-btn"
+        (click)="onTransmissionChange(transmission)"
+        [class.active]="transmission === selectedTransmission">
 
-          {{ transmission === 'Wszystkie'
+          {{ transmission === 'Obie'
               ? 'Obie'
               : transmission }}
 
@@ -120,7 +142,7 @@
   </div>
 
 
-  <!-- Liczba miejsc -->
+  <!-- Seats -->
   <div class="filter-group">
 
     <h3 class="filter-label">
@@ -131,9 +153,12 @@
 
       @for (seat of seatsOptions; track seat) {
 
-        <button class="square-btn">
+        <button 
+        class="square-btn"
+        (click)="onSeatsChange(seat)"
+        [class.active]="seat === selectedSeats">
 
-          {{ seat === 'Wszystkie' ? '–' : seat }}
+          {{ seat }}
 
         </button>
 
@@ -144,13 +169,20 @@
   </div>
 
 
-  <!-- Tylko dostępne -->
+  <!-- available only -->
   <div class="filter-group">
 
-    <label class="toggle-label">
+    <label 
+    class="toggle-label"
+    (click)="onAvailableChange()">
 
-      <div class="toggle-switch">
-        <div class="toggle-thumb"></div>
+      <div 
+      class="toggle-switch"
+      [class.active]="availableOnly">
+
+        <div class="toggle-thumb"
+        [class.active]="availableOnly"
+        ></div>
       </div>
 
       <span class="toggle-text">
@@ -163,7 +195,9 @@
 
 
   <!-- Reset -->
-  <button class="reset-filters-btn">
+  <button 
+    class="reset-filters-btn"
+    (click)="onResetFilters()">
 
     <fa-icon [icon]="faRotateLeft"></fa-icon>
 
