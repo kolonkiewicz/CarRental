@@ -10,16 +10,33 @@
           <span class="title-muted">OKAZJĘ</span>
         </h2>
       </div>
-      <a routerLink="/cars" class="see-all-link">
+      <a routerLink="/fleet" class="see-all-link">
         Zobacz całą flotę <span class="arrow"><fa-icon [icon] = "faArrowRight"></fa-icon></span>
       </a>
     </div>
 
-    <!-- Car cards grid -->
-    <div class="featuredcars-grid">
-      @for (car of fleet; track car.id) {
-        <app-car-card [car]="car"></app-car-card>
+    <!-- Car cards swiper -->
+    <swiper-container
+      slides-per-view="1"
+      space-between="16"
+      navigation="true"
+      pagination="true"
+      breakpoints='{
+    "768": {
+      "slidesPerView": 2,
+      "spaceBetween": 20
+    },
+    "1100": {
+      "slidesPerView": 3,
+      "spaceBetween": 24
+    }
+  }'
+    >
+      @for (car of featuredCars; track car.id) {
+        <swiper-slide>
+          <app-car-card [car]="car"></app-car-card>
+        </swiper-slide>
       }
-    </div>
+    </swiper-container>
   </div>
 </section>

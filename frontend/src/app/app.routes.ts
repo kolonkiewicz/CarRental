@@ -33,7 +33,7 @@ export const routes: Routes = [
         component: Cars
     },
     {
-        path:"car-details",
+        path:"cars/:id",
         component: CarDetail
     }
     

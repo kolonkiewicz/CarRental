@@ -45,4 +45,12 @@ export class CarService {
       `${this.apiUrl}/seats`
     )
   }
+
+  getFeaturedCars(): Observable<Car[]>{
+    return this.http.get<Car[]>(`${this.apiUrl}/featured`);
+  }
+
+  getCarsCount(): Observable<number>{
+    return this.http.get<number>(`${this.apiUrl}/count`);
+  }
 }

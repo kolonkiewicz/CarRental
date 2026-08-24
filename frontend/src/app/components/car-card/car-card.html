@@ -26,7 +26,10 @@
         </div>
       </div>
 
-      <button class="btn-book">Rezerwuj</button>
+      <button 
+      class="btn-book"
+      [routerLink]="['/cars', car().id]"
+      >Szczegóły</button>
     </div>
   </div>
 </div>

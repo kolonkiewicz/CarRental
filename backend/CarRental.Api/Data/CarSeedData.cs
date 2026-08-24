@@ -31,6 +31,7 @@ public static class CarSeedData
                 Rating = 4.9,
                 ReviewsCount = 32,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Bestseller"
             },
 
@@ -52,6 +53,7 @@ public static class CarSeedData
                 Rating = 4.8,
                 ReviewsCount = 24,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = null
             },
 
@@ -182,6 +184,7 @@ public static class CarSeedData
                 Rating = 4.9,
                 ReviewsCount = 34,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Bestseller"
             },
 
@@ -249,6 +252,7 @@ public static class CarSeedData
                 Rating = 4.9,
                 ReviewsCount = 45,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Premium"
             },
 
@@ -270,6 +274,7 @@ public static class CarSeedData
                 Rating = 4.8,
                 ReviewsCount = 31,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Hot"
             },
 
@@ -446,6 +451,7 @@ public static class CarSeedData
                 Rating = 4.7,
                 ReviewsCount = 42,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Eco"
             },
 
@@ -467,6 +473,7 @@ public static class CarSeedData
                 Rating = 4.8,
                 ReviewsCount = 23,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = "Eco"
             },
 
@@ -853,6 +860,7 @@ public static class CarSeedData
                 Rating = 4.6,
                 ReviewsCount = 33,
                 IsAvailable = true,
+                IsFeatured = true,
                 Badge = null
             },
 

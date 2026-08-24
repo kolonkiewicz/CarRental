@@ -205,5 +205,46 @@ namespace CarRental.Controllers.Api
             return Ok(seats);
         }
 
+        //GET api/cars/seats
+        [HttpGet("featured")]
+        public async Task<IActionResult> GetFeaturedCars()
+        {
+            var cars = await _context.Cars
+                .Where( c => c.IsFeatured)
+                .Select( c => new
+                {
+                    Id = c.CarId,
+                    Brand = c.Brand,
+                    Model = c.Model,
+                    Category = c.Category,
+                    ImageUrl = c.ImageUrl,
+                    Year = c.Year,
+                    Seats = c.Seats,
+                    FuelType = c.FuelType,
+                    Transmission = c.Transmission,
+                    Power = c.Power,
+                    Range = c.Range,
+                    Description = c.Description,
+                    PricePerDay = c.PricePerDay,
+                    Rating = c.Rating,
+                    ReviewsCount = c.ReviewsCount,
+                    IsFeatured = c.IsFeatured,
+                    IsAvailable = c.IsAvailable,
+                    Badge = c.Badge
+                })
+                .ToListAsync();
+            
+            return Ok(cars);
+        }
+
+        //GET api/cars/count
+        [HttpGet("count")]
+        public async Task<IActionResult> GetCarsCount()
+        {
+            var count = await _context.Cars.CountAsync();
+
+            return Ok(count);
+        }
+
     }
 }

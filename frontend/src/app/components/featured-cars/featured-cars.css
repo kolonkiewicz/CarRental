@@ -76,10 +76,20 @@
 }
 
 /* Mesh */
-.featuredcars-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+swiper-container{
+  width: 100%;
+  display: block;
+  --swiper-theme-color:var(--primary-red);
+}
+
+swiper-slide{
+  height: auto;
+  display: flex;
+}
+
+swiper-slide app-car-card{
+  width: 100%;
+  display: block;
 }
 
 @media (min-width: 768px) {

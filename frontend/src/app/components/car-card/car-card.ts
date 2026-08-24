@@ -8,10 +8,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { Car } from '../../models/car';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-car-card',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './car-card.html',
   styleUrl: './car-card.css',
 })
