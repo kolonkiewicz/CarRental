@@ -30,8 +30,8 @@
 
 @if (menuOpen) {
   <div class="mobile-menu">
-    @for (item of menuItems; track item){
-      <a href="#">{{ item }}</a>
+    @for (item of menuItems; track item.label){
+      <a [routerLink]="item.route">{{ item.label }}</a>
     }
 
     <a routerLink="/auth" class="mobile-login">Zaloguj się</a>

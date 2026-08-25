@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap');
+
+:host {
+  --color-primary: #dc2626;      
+  --color-primary-hover: #b91c1c;
+  --color-bg: #09090b;           
+  --color-card: #18181b;         
+  --color-secondary: #27272a;    
+  --color-border: #3f3f46;       
+  --color-emerald: #34d399;      
+  --color-amber: #fbbf24;        
+}
+
+.font-barlow {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.breadcrumb-bar {
+  background-color: #121214; 
+  border-bottom: 1px solid #27272a; 
+  padding: 6rem 1.5rem 1rem 1.5rem; 
+}
+
+@media (min-width: 768px) {
+  .breadcrumb-bar {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.breadcrumb-container {
+  max-width: 80rem; 
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+  font-size: 0.75rem; 
+  color: rgba(255, 255, 255, 0.4); 
+  text-transform: uppercase;
+  letter-spacing: 0.1em; 
+}
+
+.breadcrumb-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-btn:hover {
+  color: #e11d48; 
+}
+
+.chevron {
+  font-size: 1rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.breadcrumb-category {
+  color: rgba(255, 255, 255, 0.6); 
+}
+
+.breadcrumb-current {
+  color: #ffffff; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: 200px; 
+}

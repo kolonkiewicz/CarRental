@@ -1,59 +1,145 @@
-.breadcrumb-bar {
-  background-color: #121214; 
-  border-bottom: 1px solid #27272a; 
-  padding: 6rem 1.5rem 1rem 1.5rem; 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap');
+
+:host {
+  --color-primary: #dc2626;      
+  --color-primary-hover: #b91c1c;
+  --color-bg: #09090b;           
+  --color-card: #18181b;         
+  --color-secondary: #27272a;    
+  --color-border: #3f3f46;       
+  --color-emerald: #34d399;      
+  --color-amber: #fbbf24;        
 }
 
-@media (min-width: 768px) {
-  .breadcrumb-bar {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+.font-barlow {
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
-.breadcrumb-container {
-  max-width: 80rem; 
-  margin-left: auto;
-  margin-right: auto;
+.header-section {
+  margin-bottom: 1.5rem;
+}
+
+.badge-category-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.badge-absolute {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.125rem 0.5rem;
+}
+
+.badge-bestseller {
+  background-color: #f59e0b;
+  color: #000000;
+}
+
+.badge-hot,
+.badge-nowy {
+  background-color: var(--primaty--red);
+  color: #ffffff;
+}
+
+.badge-premium {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.badge-eco {
+  background-color: #10b981;
+  color: #000000;
+}
+
+.badge-ikona {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.badge-default {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.category-tag {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.car-title {
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.rating-availability-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rating-stars {
   display: flex;
   align-items: center;
-  gap: 0.5rem; 
-  font-size: 0.75rem; 
-  color: rgba(255, 255, 255, 0.4); 
-  text-transform: uppercase;
-  letter-spacing: 0.1em; 
+  gap: 0.25rem;
 }
 
-.breadcrumb-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  text-transform: inherit;
-  letter-spacing: inherit;
-  cursor: pointer;
-  transition: color 0.2s ease;
+.star-icon {
+  width: 1rem;
+  height: 1rem;
 }
 
-.breadcrumb-btn:hover {
-  color: #e11d48; 
+.star-active {
+  fill: var(--color-amber);
+  color: var(--color-amber);
 }
 
-.chevron {
-  font-size: 1rem;
-  line-height: 1;
+.star-inactive {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.rating-score {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+.reviews-count {
   color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
 }
 
-.breadcrumb-category {
-  color: rgba(255, 255, 255, 0.6); 
+.availability-status {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
-.breadcrumb-current {
-  color: #ffffff; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  max-width: 200px; 
+.status-available {
+  color: var(--color-emerald);
+}
+
+.status-unavailable {
+  color: var(--color-primary);
 }

@@ -1,0 +1,30 @@
+.gallery-section {
+  margin-bottom: 2rem;
+}
+
+.main-photo-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #18181b;
+  height: 16rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .main-photo-container {
+    height: 22rem;
+  }
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 300ms ease;
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}

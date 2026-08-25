@@ -1,9 +1,39 @@
-<nav class="breadcrumb-bar">
-  <div class="breadcrumb-container">
-    <button type="button" (click)="onBack()" class="breadcrumb-btn">Flota</button>
-    <span class="chevron"><fa-icon [icon]="faChevronRight" class="breadcrumb-icon"></fa-icon></span>
-    <span class="breadcrumb-category">{{ category }}</span>
-    <span class="chevron"><fa-icon [icon]="faChevronRight" class="breadcrumb-icon"></fa-icon></span>
-    <span class="breadcrumb-current">{{ brand }} {{ model }}</span>
+<div class="header-section">
+  <div class="badge-category-wrapper">
+    @if (badge) {
+      <span class="badge-tag" [ngClass]="getBadgeClass(badge)">
+        {{ badge }}
+      </span>
+    }
+    <span class="category-tag">{{ category }}</span>
   </div>
-</nav>
+
+  <h1 class="car-title">
+    {{ brand + ' ' + model | uppercase }}
+  </h1>
+
+  <div class="rating-availability-wrapper">
+    <div class="rating-stars">
+      @for (star of starsArray; track $index) {
+        <fa-icon
+          [icon]="faStar"
+          class="star-icon"
+          [ngClass]="
+            $index < mathFloor(rating)
+                ? 'star-active'
+                : 'star-inactive'
+          "
+        ></fa-icon>
+      }
+      <span class="rating-score">{{ rating }}</span>
+      <span class="reviews-count">({{ reviewsCount }} opinii)</span>
+    </div>
+
+    <span
+      class="availability-status"
+      [ngClass]="isAvailable ? 'status-available' : 'status-unavailable'"
+    >
+      {{ isAvailable ? '● Dostępny' : '● Niedostępny' }}
+    </span>
+  </div>
+</div>

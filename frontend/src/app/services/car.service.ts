@@ -53,4 +53,8 @@ export class CarService {
   getCarsCount(): Observable<number>{
     return this.http.get<number>(`${this.apiUrl}/count`);
   }
+
+  getCarById( id: number): Observable<Car>{
+    return this.http.get<Car>(`${this.apiUrl}/${id}`);
+  }
 }

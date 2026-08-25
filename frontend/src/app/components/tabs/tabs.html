@@ -1,0 +1,69 @@
+<div class="tabs-section">
+  <div class="tabs-header">
+    <button
+      type="button"
+      class="tab-btn"
+      [class.tab-active]="activeTab === 'opis'"
+      [class.tab-inactive]="activeTab !== 'opis'"
+      (click)="setActiveTab('opis')"
+    >
+      Opis
+    </button>
+    <button
+        type="button"
+        class="tab-btn"
+        [class.tab-active]="activeTab === 'spec'"
+        [class.tab-inactive]="activeTab !== 'spec'"
+        (click)="setActiveTab('spec')"
+    >
+        Specyfikacja
+  </button>
+  </div>
+
+  
+
+  <!-- OPIS -->
+  @if (activeTab === 'opis') {
+    <div class="tab-content-space">
+      <p class="description-text">
+        {{ car.description }}
+      </p>
+      <p class="description-text">
+        Silnik {{ car.fuelType }} {{ car.power }} zapewnia żwawą dynamikę, a skrzynia
+        {{ car.transmission.toLowerCase() }} gwarantuje komfort jazdy. Zasięg
+        {{ car.range }} pozwala spokojnie planować długie trasy bez zbędnych postojów.
+      </p>
+
+      <div class="main-specs-grid">
+        @for (spec of mainSpecs; track spec.label) {
+          <div class="spec-card">
+            <div class="spec-label">{{ spec.label }}</div>
+            <div class="spec-value">{{ spec.value }}</div>
+          </div>
+        }
+      </div>
+
+      <!-- Highlights -->
+      <div class="highlights-grid">
+        @for (item of highlights; track item) {
+          <div class="highlight-item">
+            <fa-icon [icon]="faCheck" class="check-icon"></fa-icon>
+            <span class="highlight-text">{{ item }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- SPEC -->
+  @if (activeTab === 'spec') {
+    <div class="spec-table">
+      @for (spec of specs; track spec.label; let i = $index) {
+        <div class="spec-row" [ngClass]="{ 'spec-row-alt': i % 2 === 0 }">
+          <span class="spec-row-label">{{ spec.label }}</span>
+          <span class="spec-row-value">{{ spec.value }}</span>
+        </div>
+      }
+    </div>
+  }
+</div>

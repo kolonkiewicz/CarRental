@@ -57,13 +57,24 @@ namespace CarRental.Controllers.Api
                 .Where(c => c.CarId == id)
                 .Select(c => new
                 {
-                    CarId = c.CarId,
+                    Id = c.CarId,
                     Brand = c.Brand,
                     Model = c.Model,
+                    Category = c.Category,
+                    ImageUrl = c.ImageUrl,
                     Year = c.Year,
+                    Seats = c.Seats,
+                    FuelType = c.FuelType,
+                    Transmission = c.Transmission,
+                    Power = c.Power,
+                    Range = c.Range,
                     Description = c.Description,
                     PricePerDay = c.PricePerDay,
-                    IsAvailable = c.IsAvailable
+                    Rating = c.Rating,
+                    ReviewsCount = c.ReviewsCount,
+                    IsFeatured = c.IsFeatured,
+                    IsAvailable = c.IsAvailable,
+                    Badge = c.Badge
                 }).FirstOrDefault();
             if (car == null)
             {

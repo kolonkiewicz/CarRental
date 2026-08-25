@@ -1,5 +1,23 @@
 <app-navbar></app-navbar>
 
-<app-car-detail-header></app-car-detail-header>
+<app-breadcrumbs></app-breadcrumbs>
+<div class="page-container">
+    <div class="main-layout">
+        <div class="left-column">
+            <app-car-detail-header></app-car-detail-header>
+            <app-gallery-detail-car></app-gallery-detail-car>
+            <app-tabs></app-tabs>
+        </div>
+        <div class="right-column">
+            <div class="sticky-sidebar">
+                <div class="booking-card">
+                    <app-price-details-car></app-price-details-car>
+                    <app-help-details-car></app-help-details-car>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <app-footer></app-footer>

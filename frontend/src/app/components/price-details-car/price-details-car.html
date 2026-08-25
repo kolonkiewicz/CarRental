@@ -1,0 +1,87 @@
+<div class="price-header">
+    <span class="price-amount">{{ car.price }}</span>
+    <span class="price-unit">zł / dzień</span>
+</div>
+<p class="price-subtitle">Pełne ubezpieczenie i pełny bak w cenie</p>
+
+<div class="booking-form">
+    <div>
+        <label class="form-label">Lokalizacja odbioru</label>
+        <div class="select-container">
+            <fa-icon [icon]="faLocationDot" class="input-icon-left"></fa-icon>
+            <select [(ngModel)]="pickupLoc" class="custom-select">
+                @for (l of locations; track l) {
+                <option [value]="l" class="bg-black">{{ l }}</option>
+                }
+            </select>
+            <fa-icon [icon]="faChevronDown" class="input-icon-right"></fa-icon>
+        </div>
+    </div>
+
+    <div class="dates-grid">
+        <div>
+            <label class="form-label">Odbiór</label>
+            <div class="input-container">
+                <fa-icon [icon]="faCalendar" class="small-input-icon"></fa-icon>
+                <input type="date" [(ngModel)]="pickupDate" (ngModelChange)="calculatePrice()" [min]="getToday()" class="custom-date-input" />
+            </div>
+        </div>
+
+        <div>
+            <label class="form-label">Zwrot</label>
+            <div class="input-container">
+                <fa-icon [icon]="faCalendar" class="small-input-icon"></fa-icon>
+                <input type="date" [(ngModel)]="returnDate" (ngModelChange)="calculatePrice()" [min]="pickupDate" class="custom-date-input" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Price breakdown -->
+<div class="price-breakdown">
+    <div class="breakdown-row">
+        <span class="breakdown-label">{{ car.price }} zł × {{ days }} {{ days === 1 ? 'dzień' : 'dni' }}</span>
+        <span class="breakdown-val">{{ car.price * days }} zł</span>
+    </div>
+    <div class="breakdown-row">
+        <span class="breakdown-label">Ubezpieczenie AC/OC</span>
+        <span class="text-free">Gratis</span>
+    </div>
+    <div class="breakdown-row">
+        <span class="breakdown-label">Paliwo</span>
+        <span class="text-free">Gratis</span>
+    </div>
+    <div class="breakdown-row">
+        <span class="breakdown-label">GPS</span>
+        <span class="text-free">Gratis</span>
+    </div>
+    <div class="total-row">
+        <span class="total-label">Razem</span>
+        <span class="total-amount">{{ total }} zł</span>
+    </div>
+</div>
+
+@if (booked) {
+<div class="booking-success-box">
+    <div class="success-icon-wrapper">
+        <fa-icon [icon]="faCheck" class="success-icon"></fa-icon>
+    </div>
+    <p class="success-title">Rezerwacja potwierdzona!</p>
+    <p class="success-subtitle">Potwierdzenie wysłano na e-mail</p>
+</div>
+} @else {
+<button (click)="handleBooking()" [disabled]="!car.available" class="booking-btn"
+    [ngClass]="car.available ? 'btn-available' : 'btn-disabled'">
+    {{ car.available ? 'Zarezerwuj teraz' : 'Pojazd niedostępny' }}
+    @if (car.available) {
+    <fa-icon [icon]="faArrowRight" class="arrow-icon"></fa-icon>
+    }
+</button>
+}
+
+<div class="perks-list">
+    <div class="perk-item"><fa-icon [icon]="faShield" class="perk-icon"></fa-icon> Bezpłatne anulowanie do 24h przed
+        odbiorem</div>
+    <div class="perk-item"><fa-icon [icon]="faClock" class="perk-icon"></fa-icon> Odbiór w 15 minut od przyjazdu</div>
+    <div class="perk-item"><fa-icon [icon]="faZap" class="perk-icon"></fa-icon> Brak ukrytych opłat</div>
+</div>
