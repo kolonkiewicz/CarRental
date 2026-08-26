@@ -6,6 +6,7 @@ import { AuthLayout } from './layouts/auth-layout/auth-layout';
 import { Component } from '@angular/core';
 import { Cars } from './pages/cars/cars';
 import { CarDetail } from './pages/car-detail/car-detail';
+import { UserDashboard } from './pages/user-dashboard/user-dashboard';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,10 @@ export const routes: Routes = [
     {
         path:"cars/:id",
         component: CarDetail
+    },
+    {
+        path:'user/dashboard',
+        component: UserDashboard
     }
     
 ];

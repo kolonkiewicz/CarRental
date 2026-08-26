@@ -1,0 +1,99 @@
+@if (activeTab === 'profile') {
+<div class="profile-tab-container">
+
+    <!-- DANE OSOBOWE -->
+    <div class="section-card">
+
+        <h2 class="section-title">
+            Dane osobowe
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label class="input-label">Imię</label>
+                <input type="text" class="custom-input" [(ngModel)]="profile.firstName">
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Nazwisko</label>
+                <input type="text" class="custom-input" [(ngModel)]="profile.lastName">
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Telefon</label>
+                <input type="tel" class="custom-input" [(ngModel)]="profile.phone">
+            </div>
+
+            <div class="form-group">
+                <label class="input-label">Miasto</label>
+                <input type="text" class="custom-input" [(ngModel)]="profile.city">
+            </div>
+
+            <div class="form-group col-span-full">
+                <label class="input-label">Adres e-mail</label>
+                <input type="email" class="custom-input" [(ngModel)]="profile.email">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section-card">
+
+        <h2 class="section-title">
+            Zmiana hasła
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label class="input-label">
+                    Nowe hasło
+                </label>
+
+                <input type="password" placeholder="Minimum 8 znaków" class="custom-input" [(ngModel)]="newPass">
+            </div>
+
+
+            <div class="form-group">
+                <label class="input-label">
+                    Potwierdź hasło
+                </label>
+
+                <input type="password" placeholder="Powtórz nowe hasło" class="custom-input" [(ngModel)]="confirmPass">
+            </div>
+
+
+            @if (newPass && confirmPass && newPass !== confirmPass) {
+            <p class="error-text col-span-full">
+                Hasła nie są zgodne
+            </p>
+            }
+
+        </div>
+
+    </div>
+
+    <div class="actions-row">
+
+        <button type="button" (click)="saveProfile()" class="btn-save">
+
+            Zapisz zmiany
+
+            @if (saved) {
+            <fa-icon [icon]="faCheck"></fa-icon>
+            }
+
+        </button>
+
+        @if (saved) {
+        <span class="success-message">
+            Zmiany zostały zapisane!
+        </span>
+        }
+
+    </div>
+
+</div>
+}

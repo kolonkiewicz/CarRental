@@ -1,0 +1,81 @@
+@if (myReservations.length === 0) {
+  <div class="empty-state">
+    <p class="empty-state-text">
+      Nie masz jeszcze żadnych rezerwacji.
+    </p>
+  </div>
+} @else {
+  <div class="tab-content-container">
+    @for (reservation of myReservations; track reservation.id) {
+      <div class="reservation-card">
+        <div class="car-image-container">
+          <img
+            [src]="reservation.carImg"
+            [alt]="reservation.carName"
+            class="car-image">
+        </div>
+
+        <div class="reservation-details">
+          <div class="reservation-header">
+            <div>
+              <div class="meta-status-row">
+                <span
+                  class="status-badge"
+                  [class.status-active]="reservation.status === 'active'"
+                  [class.status-completed]="reservation.status === 'completed'">
+                  {{ reservation.status === 'active' ? 'Aktywna' : 'Zakończona' }}
+                </span>
+
+                <span class="res-id">
+                  {{ reservation.id }}
+                </span>
+              </div>
+
+              <h3 class="car-title">
+                {{ reservation.carName }}
+              </h3>
+            </div>
+
+            <!-- CENA -->
+            <div class="price-box">
+              <div class="total-price">
+                {{ reservation.total | number:'1.0-0' }} zł
+              </div>
+
+              <div class="price-calc">
+                {{ reservation.days }} dni ×
+                {{ reservation.pricePerDay }} zł
+              </div>
+            </div>
+          </div>
+
+          <!-- DATY -->
+          <div class="dates-grid">
+            <div>
+              <div class="field-label">Odbiór</div>
+              <div class="field-value">{{ reservation.pickupDate }}</div>
+              <div class="field-subvalue">{{ reservation.pickupLoc }}</div>
+            </div>
+
+            <div>
+              <div class="field-label">Zwrot</div>
+              <div class="field-value">{{ reservation.returnDate }}</div>
+              <div class="field-subvalue">{{ reservation.returnLoc }}</div>
+            </div>
+          </div>
+
+          @if (reservation.status === 'active') {
+            <div class="card-actions">
+              <button
+                type="button"
+                (click)="cancelReservation(reservation.id)"
+                class="btn-cancel">
+                Anuluj rezerwację
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+}

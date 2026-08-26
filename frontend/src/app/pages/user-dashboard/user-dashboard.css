@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap');
+
+:host {
+  --color-primary: #dc2626;
+  --color-primary-hover: #b91c1c;
+  --color-card: #18181b;
+  --color-secondary: #27272a;
+  --color-border: #3f3f46;
+  --color-emerald: #34d399;
+  background-color: #09090b;
+  display: block;
+  min-height: 100vh;
+}
+
+
+.font-barlow {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.account-container {
+  flex: 1;
+  width: 100%;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .account-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,51 @@
+<div class="welcome-card">
+
+  <div class="avatar-box">
+    {{ profile.firstName.charAt(0) }}
+  </div>
+
+  <div class="welcome-info">
+    <h1 class="welcome-title">
+      Witaj, {{ profile.firstName }}!
+    </h1>
+
+    <p class="welcome-subtitle">
+      {{ user.email }}
+    </p>
+  </div>
+
+  <div class="stats-group">
+
+    <div class="stat-item">
+      <div class="stat-value">
+        {{ myReservations.length }}
+      </div>
+
+      <div class="stat-label">
+        Rezerwacje
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-value">
+        {{ activeReservationsCount }}
+      </div>
+
+      <div class="stat-label">
+        Aktywne
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <div class="stat-value">
+        {{ completedReservationsCount }}
+      </div>
+
+      <div class="stat-label">
+        Zakończone
+      </div>
+    </div>
+
+  </div>
+
+</div>

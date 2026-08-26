@@ -1,0 +1,27 @@
+<div className="tabs-navigation">
+    <button type="button" class="tab-button" [class.tab-active]="activeTab === 'reservations'"
+        [class.tab-inactive]="activeTab !== 'reservations'" (click)="setTab('reservations')">
+        Moje rezerwacje ({{ myReservations.length }})
+    </button>
+
+    <button type="button" class="tab-button" [class.tab-active]="activeTab === 'profile'"
+        [class.tab-inactive]="activeTab !== 'profile'" (click)="setTab('profile')">
+        Dane osobowe
+    </button>
+</div>
+
+@if (activeTab === 'reservations') {
+
+  <div class="tab-content">
+    <app-reservation-card></app-reservation-card>
+  </div>
+
+}
+
+@if (activeTab === 'profile') {
+
+  <div class="tab-content">
+    <app-user-profile></app-user-profile>
+  </div>
+
+}
