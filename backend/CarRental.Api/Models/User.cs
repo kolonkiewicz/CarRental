@@ -14,7 +14,7 @@ public class User
 
     public string PasswordHashed { get; set; } = string.Empty;
 
-    public string Role { get; set; } = string.Empty;
+    public string Role { get; set; } = "User";
 
     public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }

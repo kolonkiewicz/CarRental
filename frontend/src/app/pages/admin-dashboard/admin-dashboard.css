@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;900&family=Inter:wght@400;500;600&display=swap');
+
+:host{
+    --bg-dark: #0a0a0a;
+    --text-white: #ffffff;
+}
+
+.admin-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .admin-wrapper {
+    margin-left: 14rem;
+  }
+}
+
+.admin-main {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  background-color: var(--bg-dark);
+  margin: 0;
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .admin-main {
+    padding: 2rem;
+  }
+}
+
+.section-content {
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

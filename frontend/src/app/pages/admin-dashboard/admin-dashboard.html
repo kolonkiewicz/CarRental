@@ -1,1 +1,28 @@
-<p>admin-dashboard works!</p>
+<div class="admin-wrapper">
+    <app-admin-header [activeTab]="activeTab"></app-admin-header>
+    <app-admin-sidebar
+        [activeTab]="activeTab"
+        (tabChanged)="setTab($event)"
+    ></app-admin-sidebar>
+    <div class="admin-main">
+        <div class="section-content">
+            @if ( activeTab === 'dashboard' ){
+                <app-admin-main-page></app-admin-main-page>
+            }
+
+            @if ( activeTab === 'user' ){
+                <app-admin-user></app-admin-user>
+            }
+
+            @if ( activeTab === 'reservations' ){
+                <app-admin-reservation></app-admin-reservation>
+            }
+
+            @if ( activeTab === 'fleet' ){
+                <app-admin-fleet></app-admin-fleet>
+            }
+        </div>
+    </div>
+</div>
+
+

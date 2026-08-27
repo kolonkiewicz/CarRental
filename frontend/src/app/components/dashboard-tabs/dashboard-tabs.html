@@ -4,8 +4,12 @@
         Moje rezerwacje ({{ myReservations.length }})
     </button>
 
-    <button type="button" class="tab-button" [class.tab-active]="activeTab === 'profile'"
-        [class.tab-inactive]="activeTab !== 'profile'" (click)="setTab('profile')">
+    <button 
+      type="button" 
+      class="tab-button" 
+      [class.tab-active]="activeTab === 'profile'"
+      [class.tab-inactive]="activeTab !== 'profile'" 
+      (click)="setTab('profile')">
         Dane osobowe
     </button>
 </div>

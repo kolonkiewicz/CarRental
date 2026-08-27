@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+
+:host {
+  --bg-dark: #0a0a0a;
+  --bg-card: #121212;
+  --bg-secondary: #1a1a1a;
+  --border-color: #262626;
+  --primary-red: #e50914;
+  --primary-hover: #b80710;
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --color-emerald: #34d399;
+  --color-amber: #fbbf24;
+}
+
+.font-barlow {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.admin-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  padding-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .admin-header {
+    padding-top: 1rem;
+  }
+}
+
+.header-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+
+.header-subtitle {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: rem;
+  margin: 0;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(229, 9, 20, 0.2);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-red);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: bold;
+}
+
+.user-role {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+}

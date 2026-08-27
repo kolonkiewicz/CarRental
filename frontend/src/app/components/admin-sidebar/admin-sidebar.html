@@ -1,0 +1,48 @@
+<aside class="sidebar">
+    <!-- LOGO & BADGE -->
+    <div class="sidebar-brand">
+        <span class="brand-text">VELO<span class="brand-accent">DRIVE</span></span>
+        <span class="badge-admin">Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <button 
+        class="nav-item"
+        [class.active]="activeTab() ==='dashboard'"
+        (click)="setTab('dashboard')">
+                <fa-icon class="nav-icon" [icon]="faChartBar"></fa-icon>
+                <span>Pulpit</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            [class.active]="activeTab() ==='user'"
+            (click)="setTab('user')">
+                <fa-icon class="nav-icon" [icon]="faUser"></fa-icon>
+                <span>Użytkownicy</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            [class.active]="activeTab() ==='reservations'"
+            (click)="setTab('reservations')">
+                <fa-icon class="nav-icon" [icon]="faCalendar"></fa-icon>
+                <span>Rezerwacje</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            [class.active]="activeTab() ==='fleet'"
+            (click)="setTab('fleet')">
+            <fa-icon class="nav-icon" [icon]="faGauge"></fa-icon>
+            <span>Flota</span>
+        </button>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button class="btn-logout">
+            <fa-icon class="nav-icon" [icon]="faRightFromBracket"></fa-icon>
+            <span>Wyloguj się</span>
+        </button>
+    </div>
+</aside>

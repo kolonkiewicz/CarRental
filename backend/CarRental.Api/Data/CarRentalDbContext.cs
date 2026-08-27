@@ -25,6 +25,7 @@ public class CarRentalDbContext : DbContext
             .HasPrecision(10, 2);
             
         CarSeedData.Seed(modelBuilder);
+        ReservationSeedData.Seed(modelBuilder);
     }
 
 }

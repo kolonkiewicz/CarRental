@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { Cars } from './pages/cars/cars';
 import { CarDetail } from './pages/car-detail/car-detail';
 import { UserDashboard } from './pages/user-dashboard/user-dashboard';
+import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path:'user/dashboard',
         component: UserDashboard
+    },
+    {
+        path:'admin/dashboard',
+        component: AdminDashboard
     }
     
 ];
