@@ -9,12 +9,13 @@ import {
   faChartBar,
   faUser
  } from '@fortawesome/free-solid-svg-icons';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 type Tab = 'dashboard' | 'reservations' | 'fleet' | 'user';
 
 @Component({
   selector: 'app-admin-sidebar',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
   templateUrl: './admin-sidebar.html',
   styleUrl: './admin-sidebar.css',
 })
@@ -24,12 +25,4 @@ export class AdminSidebar {
   faGauge = faGauge;
   faChartBar = faChartBar;
   faUser = faUser;
-
-  activeTab = input.required<Tab>();
-  tabChanged = output<Tab>();
-
-
-  setTab(tab: Tab): void{
-    this.tabChanged.emit(tab);
-  }
 }

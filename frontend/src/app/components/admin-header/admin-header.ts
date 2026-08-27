@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-
-type Tab = 'dashboard' | 'reservations' | 'fleet' | 'user';
+import { Component, inject, input } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { every, filter } from 'rxjs';
 
 @Component({
   selector: 'app-admin-header',
@@ -9,12 +9,34 @@ type Tab = 'dashboard' | 'reservations' | 'fleet' | 'user';
   styleUrl: './admin-header.css',
 })
 export class AdminHeader {
-  activeTab = input.required<Tab>();
+  private router = inject(Router);
 
-  pageTitles: Record<Tab, string> = {
-    dashboard: 'PULPIT',
-    user: 'UŻYTKOWNICY',
-    reservations: 'REZERWACJE',
-    fleet: 'FLOTA'
-  };
+  pageTitle = 'Pulpit';
+
+  constructor(){
+    this.router.events
+      .pipe(
+        filter( event => event instanceof NavigationEnd)
+      )
+      .subscribe((event: NavigationEnd) =>{
+        this.setPageTitle(event.urlAfterRedirects);
+      });
+  }
+
+  private setPageTitle(url: string): void{
+    
+    if (url.includes('/admin/dashboard')) {
+      this.pageTitle = 'Pulpit';
+    }
+    else if (url.includes('/admin/users')) {
+      this.pageTitle = 'Użytkownicy';
+    }
+    else if (url.includes('/admin/reservations')) {
+      this.pageTitle = 'Rezerwacje';
+    }
+    else if (url.includes('/admin/fleet')) {
+      this.pageTitle = 'Flota';
+    }
+  }
+
 }

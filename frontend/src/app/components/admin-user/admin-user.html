@@ -1,1 +1,41 @@
-<p>admin-user works!</p>
+<div class="filter-bar">
+    <div class="search-input-wrapper">
+        <span class="search-icon"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+        <input type="text" placeholder="Szukaj po nazwisku lub e-mailu..." class="search-input" [(ngModel)]="searchTerm" (input)="searchUser()">
+    </div>
+    <span class="count-text"><strong class="text-white">{{ filteredUsers.length }}</strong> użytkowników</span>
+</div>
+
+<div class="table-card">
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Użytkownik</th>
+                    <th>E-mail</th>
+                    <th>Telefon</th>
+                    <th>Rez.</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for ( user of filteredUsers; track user.userId){
+                    <tr>
+                        <td>
+                            <div class="user-cell">
+                                <div class="user-avatar-sm">{{ user.firstName.charAt(0) }}</div>
+                                <span class="text-white font-medium">{{ user.firstName }} {{ user.surname }}</span>
+                            </div>
+                        </td>
+                        <td class="text-secondary">{{ user.email }}</td>
+                        <td class="text-secondary">{{ user.phone }}</td>
+                        <td class="text-white font-bold font-condensed">{{ user.reservationCount }}</td>
+                        <td>
+                            <button class="btn-icon" title="Usuń użytkownika"><fa-icon [icon]="faTrash"></fa-icon></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

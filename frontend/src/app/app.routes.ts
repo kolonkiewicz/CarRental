@@ -8,6 +8,10 @@ import { Cars } from './pages/cars/cars';
 import { CarDetail } from './pages/car-detail/car-detail';
 import { UserDashboard } from './pages/user-dashboard/user-dashboard';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
+import { AdminMainPage } from './components/admin-main-page/admin-main-page';
+import { AdminUser } from './components/admin-user/admin-user';
+import { AdminReservation } from './components/admin-reservation/admin-reservation';
+import { AdminFleet } from './components/admin-fleet/admin-fleet';
 
 export const routes: Routes = [
     {
@@ -43,8 +47,31 @@ export const routes: Routes = [
         component: UserDashboard
     },
     {
-        path:'admin/dashboard',
-        component: AdminDashboard
+        path:'admin',
+        component: AdminDashboard,
+        children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
+            {
+                path: 'dashboard',
+                component: AdminMainPage
+            },
+            {
+                path: 'users',
+                component: AdminUser
+            },
+            {
+                path: 'reservations',
+                component: AdminReservation
+            },
+            {
+                path: 'fleet',
+                component: AdminFleet
+            }
+        ]
     }
     
 ];

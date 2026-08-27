@@ -3,10 +3,11 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { AdminService } from '../../services/admin-service';
 import { AdminDashboardDto } from '../../models/admin-dashboard';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-admin-main-page',
-  imports: [FaIconComponent],
+  imports: [FaIconComponent, RouterLink],
   templateUrl: './admin-main-page.html',
   styleUrl: './admin-main-page.css',
 })
@@ -17,8 +18,6 @@ export class AdminMainPage implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   dashboard?: AdminDashboardDto;
-
-  reservationsTab = output<void>();
 
   ngOnInit(): void {
     this.adminService.getDashboard().subscribe({
