@@ -43,7 +43,9 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = c.IsAvailable,
+                    IsAvailable = !c.Reservations.Any( r =>
+                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
+                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
                     Badge = c.Badge
                 }).ToList();
             return Ok(cars);
@@ -73,7 +75,9 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = c.IsAvailable,
+                    IsAvailable = !c.Reservations.Any( r =>
+                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
+                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
                     Badge = c.Badge
                 }).FirstOrDefault();
             if (car == null)
@@ -94,8 +98,7 @@ namespace CarRental.Controllers.Api
                 Model = dto.Model,
                 Year = dto.Year,
                 Description = dto.Description,
-                PricePerDay = dto.PricePerDay,
-                IsAvailable = dto.IsAvailable
+                PricePerDay = dto.PricePerDay
             };
 
             _context.Cars.Add(car);
@@ -125,7 +128,6 @@ namespace CarRental.Controllers.Api
             car.Year = dto.Year;
             car.Description = dto.Description;
             car.PricePerDay = dto.PricePerDay;
-            car.IsAvailable = dto.IsAvailable;
 
             _context.SaveChanges();
 
@@ -240,7 +242,9 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = c.IsAvailable,
+                    IsAvailable = !c.Reservations.Any( r =>
+                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
+                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
                     Badge = c.Badge
                 })
                 .ToListAsync();

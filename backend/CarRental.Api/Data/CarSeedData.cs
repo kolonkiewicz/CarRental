@@ -30,7 +30,6 @@ public static class CarSeedData
                 PricePerDay = 1499,
                 Rating = 4.9,
                 ReviewsCount = 32,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Bestseller"
             },
@@ -52,7 +51,6 @@ public static class CarSeedData
                 PricePerDay = 899,
                 Rating = 4.8,
                 ReviewsCount = 24,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = null
             },
@@ -74,7 +72,6 @@ public static class CarSeedData
                 PricePerDay = 999,
                 Rating = 4.8,
                 ReviewsCount = 29,
-                IsAvailable = true,
                 Badge = "Hot"
             },
 
@@ -95,7 +92,6 @@ public static class CarSeedData
                 PricePerDay = 1399,
                 Rating = 4.9,
                 ReviewsCount = 18,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -116,7 +112,6 @@ public static class CarSeedData
                 PricePerDay = 1599,
                 Rating = 4.9,
                 ReviewsCount = 41,
-                IsAvailable = true,
                 Badge = "Ikona"
             },
 
@@ -141,7 +136,6 @@ public static class CarSeedData
                 PricePerDay = 999,
                 Rating = 4.8,
                 ReviewsCount = 37,
-                IsAvailable = true,
                 Badge = "Nowy"
             },
 
@@ -162,7 +156,6 @@ public static class CarSeedData
                 PricePerDay = 849,
                 Rating = 4.7,
                 ReviewsCount = 21,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -183,7 +176,6 @@ public static class CarSeedData
                 PricePerDay = 1099,
                 Rating = 4.9,
                 ReviewsCount = 34,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Bestseller"
             },
@@ -205,7 +197,6 @@ public static class CarSeedData
                 PricePerDay = 899,
                 Rating = 4.8,
                 ReviewsCount = 27,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -226,7 +217,6 @@ public static class CarSeedData
                 PricePerDay = 1299,
                 Rating = 4.9,
                 ReviewsCount = 19,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -251,7 +241,6 @@ public static class CarSeedData
                 PricePerDay = 1299,
                 Rating = 4.9,
                 ReviewsCount = 45,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Premium"
             },
@@ -273,7 +262,6 @@ public static class CarSeedData
                 PricePerDay = 1099,
                 Rating = 4.8,
                 ReviewsCount = 31,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Hot"
             },
@@ -295,7 +283,6 @@ public static class CarSeedData
                 PricePerDay = 899,
                 Rating = 4.8,
                 ReviewsCount = 28,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -316,7 +303,6 @@ public static class CarSeedData
                 PricePerDay = 1199,
                 Rating = 4.9,
                 ReviewsCount = 26,
-                IsAvailable = true,
                 Badge = "Bestseller"
             },
 
@@ -337,7 +323,6 @@ public static class CarSeedData
                 PricePerDay = 1999,
                 Rating = 5.0,
                 ReviewsCount = 17,
-                IsAvailable = true,
                 Badge = "Ikona"
             },
 
@@ -362,7 +347,6 @@ public static class CarSeedData
                 PricePerDay = 999,
                 Rating = 4.9,
                 ReviewsCount = 22,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -383,7 +367,6 @@ public static class CarSeedData
                 PricePerDay = 1099,
                 Rating = 4.9,
                 ReviewsCount = 25,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -404,7 +387,6 @@ public static class CarSeedData
                 PricePerDay = 799,
                 Rating = 4.7,
                 ReviewsCount = 18,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -429,7 +411,6 @@ public static class CarSeedData
                 PricePerDay = 899,
                 Rating = 4.8,
                 ReviewsCount = 36,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -450,7 +431,6 @@ public static class CarSeedData
                 PricePerDay = 499,
                 Rating = 4.7,
                 ReviewsCount = 42,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Eco"
             },
@@ -472,7 +452,6 @@ public static class CarSeedData
                 PricePerDay = 699,
                 Rating = 4.8,
                 ReviewsCount = 23,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = "Eco"
             },
@@ -494,7 +473,6 @@ public static class CarSeedData
                 PricePerDay = 899,
                 Rating = 4.9,
                 ReviewsCount = 21,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -519,7 +497,6 @@ public static class CarSeedData
                 PricePerDay = 399,
                 Rating = 4.7,
                 ReviewsCount = 35,
-                IsAvailable = true,
                 Badge = "Bestseller"
             },
 
@@ -540,7 +517,6 @@ public static class CarSeedData
                 PricePerDay = 349,
                 Rating = 4.6,
                 ReviewsCount = 29,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -561,7 +537,6 @@ public static class CarSeedData
                 PricePerDay = 369,
                 Rating = 4.6,
                 ReviewsCount = 20,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -586,7 +561,6 @@ public static class CarSeedData
                 PricePerDay = 299,
                 Rating = 4.6,
                 ReviewsCount = 31,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -607,7 +581,6 @@ public static class CarSeedData
                 PricePerDay = 349,
                 Rating = 4.7,
                 ReviewsCount = 38,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -628,7 +601,6 @@ public static class CarSeedData
                 PricePerDay = 549,
                 Rating = 4.8,
                 ReviewsCount = 27,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -649,7 +621,6 @@ public static class CarSeedData
                 PricePerDay = 649,
                 Rating = 4.8,
                 ReviewsCount = 24,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -670,7 +641,6 @@ public static class CarSeedData
                 PricePerDay = 699,
                 Rating = 4.8,
                 ReviewsCount = 39,
-                IsAvailable = true,
                 Badge = "Ikona"
             },
 
@@ -691,7 +661,6 @@ public static class CarSeedData
                 PricePerDay = 449,
                 Rating = 4.6,
                 ReviewsCount = 19,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -712,7 +681,6 @@ public static class CarSeedData
                 PricePerDay = 999,
                 Rating = 4.9,
                 ReviewsCount = 23,
-                IsAvailable = true,
                 Badge = "Premium"
             },
 
@@ -733,7 +701,6 @@ public static class CarSeedData
                 PricePerDay = 699,
                 Rating = 4.8,
                 ReviewsCount = 30,
-                IsAvailable = true,
                 Badge = "Hot"
             },
 
@@ -754,7 +721,6 @@ public static class CarSeedData
                 PricePerDay = 599,
                 Rating = 4.8,
                 ReviewsCount = 22,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -775,7 +741,6 @@ public static class CarSeedData
                 PricePerDay = 999,
                 Rating = 4.9,
                 ReviewsCount = 16,
-                IsAvailable = true,
                 Badge = "Ikona"
             },
 
@@ -796,7 +761,6 @@ public static class CarSeedData
                 PricePerDay = 799,
                 Rating = 4.8,
                 ReviewsCount = 17,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -817,7 +781,6 @@ public static class CarSeedData
                 PricePerDay = 449,
                 Rating = 4.7,
                 ReviewsCount = 26,
-                IsAvailable = true,
                 Badge = "Nowy"
             },
 
@@ -838,7 +801,6 @@ public static class CarSeedData
                 PricePerDay = 299,
                 Rating = 4.6,
                 ReviewsCount = 44,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -859,7 +821,6 @@ public static class CarSeedData
                 PricePerDay = 329,
                 Rating = 4.6,
                 ReviewsCount = 33,
-                IsAvailable = true,
                 IsFeatured = true,
                 Badge = null
             },
@@ -881,7 +842,6 @@ public static class CarSeedData
                 PricePerDay = 449,
                 Rating = 4.7,
                 ReviewsCount = 29,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -902,7 +862,6 @@ public static class CarSeedData
                 PricePerDay = 449,
                 Rating = 4.7,
                 ReviewsCount = 32,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -923,7 +882,6 @@ public static class CarSeedData
                 PricePerDay = 499,
                 Rating = 4.8,
                 ReviewsCount = 28,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -944,7 +902,6 @@ public static class CarSeedData
                 PricePerDay = 549,
                 Rating = 4.7,
                 ReviewsCount = 51,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -965,7 +922,6 @@ public static class CarSeedData
                 PricePerDay = 699,
                 Rating = 4.8,
                 ReviewsCount = 20,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -986,7 +942,6 @@ public static class CarSeedData
                 PricePerDay = 649,
                 Rating = 4.7,
                 ReviewsCount = 18,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -1007,7 +962,6 @@ public static class CarSeedData
                 PricePerDay = 1199,
                 Rating = 4.9,
                 ReviewsCount = 35,
-                IsAvailable = true,
                 Badge = "Ikona"
             },
 
@@ -1028,7 +982,6 @@ public static class CarSeedData
                 PricePerDay = 649,
                 Rating = 4.8,
                 ReviewsCount = 28,
-                IsAvailable = true,
                 Badge = "Hot"
             },
 
@@ -1049,7 +1002,6 @@ public static class CarSeedData
                 PricePerDay = 299,
                 Rating = 4.7,
                 ReviewsCount = 37,
-                IsAvailable = true,
                 Badge = null
             },
 
@@ -1070,7 +1022,6 @@ public static class CarSeedData
                 PricePerDay = 329,
                 Rating = 4.6,
                 ReviewsCount = 19,
-                IsAvailable = true,
                 Badge = "Eco"
             },
 
@@ -1091,7 +1042,6 @@ public static class CarSeedData
                 PricePerDay = 299,
                 Rating = 4.6,
                 ReviewsCount = 23,
-                IsAvailable = true,
                 Badge = "Nowy"
             }
         );

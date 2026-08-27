@@ -49,11 +49,6 @@ namespace CarRental.Controllers.Api
                 return NotFound("Car not found.");
             }
 
-            if (!car.IsAvailable)
-            {
-                return BadRequest("Car is not available.");
-            }
-
             var days = (dto.EndDate.ToDateTime(TimeOnly.MinValue)
                 - dto.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
 
@@ -162,8 +157,7 @@ namespace CarRental.Controllers.Api
                         Model = r.Car.Model,
                         Year = r.Car.Year,
                         Description = r.Car.Description,
-                        PricePerDay = r.Car.PricePerDay,
-                        IsAvailable = r.Car.IsAvailable
+                        PricePerDay = r.Car.PricePerDay
                     }
                 })
                 .FirstOrDefault();
@@ -212,10 +206,7 @@ namespace CarRental.Controllers.Api
                 return NotFound("Car not found.");
             }
 
-            if (!car.IsAvailable)
-            {
-                return BadRequest("Car is not available.");
-            }
+            
             
             var days = (dto.EndDate.ToDateTime(TimeOnly.MinValue)
                 - dto.StartDate.ToDateTime(TimeOnly.MinValue)).Days;

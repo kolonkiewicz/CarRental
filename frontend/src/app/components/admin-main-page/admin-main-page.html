@@ -1,1 +1,54 @@
-<p>admin-main-page works!</p>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Użytkownicy</div>
+        <div class="stat-value text-white">{{ dashboard?.usersCount }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Aktywne rez.</div>
+        <div class="stat-value text-emerald">{{ dashboard?.activeReservations }}</div>
+        <div class="stat-sub">{{ dashboard?.totalReservations }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Przychód</div>
+        <div class="stat-value text-amber">{{ dashboard?.revenue }}</div>
+        <div class="stat-sub">zrealizowane</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Dostępne auta</div>
+        <div class="stat-value text-primary">{{ dashboard?.availableCars }}</div>
+        <div class="stat-sub">{{ dashboard?.totalCars }}</div>
+    </div>
+</div>
+
+
+<div class="table-card">
+    <div class="table-card-header">
+        <h3 class="table-title">Ostatnie rezerwacje</h3>
+        <button class="btn-link" (click)="reservationsTab.emit()">Zobacz wszystkie <fa-icon [icon]="faArrowRight"></fa-icon></button>
+    </div>
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Klient</th>
+                    <th>Pojazd</th>
+                    <th>Termin</th>
+                    <th>Kwota</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for( reservation of dashboard?.recentReservations; track reservation.reservationId){
+                <tr>
+                    <td class="font-mono text-muted">{{ reservation.reservationId }}</td>
+                    <td class="text-white font-medium">{{ reservation.customerName }}</td>
+                    <td class="text-secondary">{{ reservation.carName }}</td>
+                    <td class="text-muted">{{ reservation.startDate }} - {{ reservation.endDate }}</td>
+                    <td class="text-white font-semibold">{{ reservation.totalPrice }} zł</td>
+                    <td><span class="badge"[class.badge-active]="reservation.status === 'Aktywna'" [class.badge-completed]="reservation.status === 'Zakończona'" [class.badge-upcoming]="reservation.status === 'Nadchodzące'" >{{ reservation.status }}</span></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>

@@ -21,7 +21,4 @@ public class CreateCarDto
     [Range(0.01,10000)]
     public decimal PricePerDay { get; set; }
 
-    public bool IsAvailable { get; set; }
-
-
 }

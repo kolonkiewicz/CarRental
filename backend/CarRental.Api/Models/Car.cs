@@ -34,8 +34,6 @@ public class Car
 
     public bool IsFeatured { get; set; } = false;
 
-    public bool IsAvailable { get; set; }
-
     public string? Badge { get; set; }
     public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 }

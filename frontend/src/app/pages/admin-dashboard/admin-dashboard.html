@@ -7,7 +7,9 @@
     <div class="admin-main">
         <div class="section-content">
             @if ( activeTab === 'dashboard' ){
-                <app-admin-main-page></app-admin-main-page>
+                <app-admin-main-page
+                    (reservationsTab)="setTab('reservations')"
+                ></app-admin-main-page>
             }
 
             @if ( activeTab === 'user' ){
