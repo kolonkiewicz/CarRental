@@ -180,3 +180,31 @@
   background-color: var(--primary-red);
   border-color: var(--primary-red);
 }
+
+/* Unavailable car */
+.car-unavailable {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.car-unavailable:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.car-unavailable .car-img {
+  filter: grayscale(70%);
+  opacity: 0.6;
+}
+
+.car-unavailable:hover .car-img {
+  transform: none;
+}
+
+.car-unavailable .media-overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.badge-unavailable {
+  background-color: #52525b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

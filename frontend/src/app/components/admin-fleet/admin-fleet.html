@@ -1,1 +1,86 @@
-<p>admin-fleet works!</p>
+<div class="filter-bar" >
+
+    <div class="search-input-wrapper">
+        <span class="search-icon"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+        <input type="text" placeholder="Szukaj po nazwie auta ..." class="search-input" [(ngModel)]="searchTerm"
+            (input)="searchCar()">
+    </div>
+    <span class="count-text"><strong class="text-white">{{ filteredCars.length }}</strong> pojazdów w bazie · <span
+            class="text-emerald">{{ availableCarsCount }} dostępnych</span></span>
+    <div class="filter-actions">
+        <div class="status-select-wrapper">
+            <select class="status-select" [(ngModel)]="selectedStatus" (change)="filterCars()">
+                <option value="Wszystkie">Wszystkie</option>
+                <option value="Dostępne">Dostępne</option>
+                <option value="Niedostępne">Niedostępne</option>
+            </select>
+        </div>
+        <button class="btn-primary" (click)="openAddCar()">+ DODAJ POJAZD</button>
+    </div>
+
+</div>
+
+
+<div class="table-card">
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Pojazd</th>
+                    <th>Kategoria</th>
+                    <th>Paliwo</th>
+                    <th>Skrzynia</th>
+                    <th>Cena/dzień</th>
+                    <th>Status</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for ( car of filteredCars; track car.id ){
+                <tr>
+                    <td>
+                        <div class="car-cell">
+                            <div class="car-thumb">
+                                <img [src]="car.imageUrl" [alt]="car.brand + ' ' + car.model">
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">{{ car.brand }} {{ car.model }}</div>
+                                <div class="text-muted">{{ car.power }} KM</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-secondary">{{ car.category }}</td>
+                    <td class="text-secondary">{{ car.fuelType }}</td>
+                    <td class="text-secondary">{{ car.transmission }}</td>
+                    <td class="text-white font-bold font-condensed">{{ car.pricePerDay }} zł</td>
+                    <td>
+                        @if ( car.isAvailable ){
+                        <span class="badge badge-active">Dostępny</span>
+                        } @else {
+                        <span class="badge badge-completed">Niedostępny</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon" title="Edytuj" (click)="openEditCar(car)"><fa-icon
+                                    [icon]="faPen"></fa-icon></button>
+                            <button class="btn-icon" title="Usuń"><fa-icon [icon]="faTrash"></fa-icon></button>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if ( showCarModel){
+<div class="modal-backdrop" (click)="closeCarModel()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+        <app-admin-car-form
+            [car]="selectedCar"
+            (close)="closeCarModel()"    
+        ></app-admin-car-form>
+    </div>
+</div>
+}

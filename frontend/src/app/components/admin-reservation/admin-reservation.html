@@ -1,1 +1,73 @@
-<p>admin-reservation works!</p>
+<div class="filter-bar">
+    <div class="search-input-wrapper">
+        <span class="search-icon"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+        <input type="text" placeholder="Szukaj po nazwie auta lub kliencie ..." class="search-input" [(ngModel)]="searchTerm" (input)="searchReservation()">
+    </div>
+    <span class="count-text"><strong class="text-white">{{ filteredReservations.length }}</strong> rezerwacji</span>
+    <div class="filter-buttons">
+      <button 
+        class="btn-filter" 
+        [class.active]="selectedStatus === 'Wszystkie'"
+        (click)="filterByStatus('Wszystkie')">Wszystkie</button>
+      <button 
+        class="btn-filter"
+        class="btn-filter" 
+        [class.active]="selectedStatus === 'Aktywna'"
+        (click)="filterByStatus('Aktywna')">Aktywne</button>
+      <button 
+        class="btn-filter"
+        class="btn-filter" 
+        [class.active]="selectedStatus === 'Nadchodząca'"
+        (click)="filterByStatus('Nadchodząca')">Nadchodząca</button>
+      <button 
+        class="btn-filter"
+        class="btn-filter" 
+        [class.active]="selectedStatus === 'Zakończona'"
+        (click)="filterByStatus('Zakończona')">Zakończone</button>
+      
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Klient</th>
+            <th>Pojazd</th>
+            <th>Odbiór</th>
+            <th>Zwrot</th>
+            <th>Kwota</th>
+            <th>Status</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+           @for ( reservation of filteredReservations; track reservation.reservationId  ){
+          <tr>
+            <td class="font-mono text-muted">{{ reservation.reservationId}}</td>
+            <td class="text-white font-medium">{{ reservation.customerName}}</td>
+            <td class="text-secondary">{{ reservation.carName}}</td>
+            <td>
+              <div class="text-secondary">{{ reservation.startDate}}</div>
+              <div class="text-muted text-xs">{{ reservation.pickupLocation}}</div>
+            </td>
+            <td>
+              <div class="text-secondary">{{ reservation.endDate}}</div>
+              <div class="text-muted text-xs">{{ reservation.returnLocation}}</div>
+            </td>
+            <td class="text-white font-semibold">{{ reservation.totalPrice }} zł</td>
+            <td>
+              
+              <span class="badge"[class.badge-active]="reservation.status === 'Aktywna'" [class.badge-completed]="reservation.status === 'Zakończona'" [class.badge-upcoming]="reservation.status === 'Nadchodząca'" >{{ reservation.status }}</span>
+            </td>
+            <td>
+              <button class="btn-icon" title="Usuń rezerwację"><fa-icon [icon]="faTrash"></fa-icon></button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>

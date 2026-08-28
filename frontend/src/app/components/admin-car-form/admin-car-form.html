@@ -1,0 +1,163 @@
+<div class="model-header">
+    <h3 class="model-title">
+        {{ isEditMode ? 'EDYTUJ POJAZD' : 'DODAJ NOWY POJAZD' }}
+    </h3>
+    <button class="btn-close" (click)="close.emit()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+    </button>
+</div>
+<div class="form-grid">
+    <div class="form-group">
+        <label class="form-label">Marka</label>
+        <input 
+            type="text" 
+            class="form-input"
+            [(ngModel)]="formCar.brand"
+            placeholder="np.Porsche" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Model</label>
+        <input 
+            type="text" 
+            class="form-input"
+            [(ngModel)]="formCar.model"
+            placeholder="np. 911 GT3" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Cena (zł/dzień)</label>
+        <input 
+            type="number" 
+            class="form-input"
+            [(ngModel)]="formCar.pricePerDay"
+            min="0" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Rok</label>
+        <input 
+            type="number" 
+            class="form-input"
+            [(ngModel)]="formCar.year"
+            min="1900"
+            max="2100" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Moc</label>
+        <input 
+            type="text" 
+            class="form-input"
+            [(ngModel)]="formCar.power"
+            min="0"
+            placeholder="np. 510" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Zasięg</label>
+        <input 
+            type="text" 
+            class="form-input"
+            [(ngModel)]="formCar.range"
+            min="0"
+            placeholder="np, 500" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Kategoria</label>
+        <select class="form-select" [(ngModel)]="formCar.category">
+            <option value="" disabled>Wybierz kategorie</option>
+            <option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Paliwo</label>
+        <select class="form-select" [(ngModel)]="formCar.fuelType">
+            <option value="" disabled>Wybierz paliwo</option>
+            <option *ngFor="let fuel of fuelTypes" [value]="fuel">
+                {{ fuel }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Skrzynia biegów</label>
+        <select class="form-select" [(ngModel)]="formCar.transmission">
+            <option value="" disabled>Wybierz skrzenie</option>
+            <option *ngFor="let transmission of transmissions" [value]="transmission">
+                {{ transmission }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Liczba miejsc</label>
+        <input 
+            type="number" 
+            min="2" 
+            max="9" 
+            class="form-input"
+            [(ngModel)]="formCar.seats" />
+    </div>
+
+    <div class="form-group full-width">
+        <label class="form-label">URL zdjęcia</label>
+        <input 
+            type="text" 
+            placeholder="https://..." 
+            class="form-input" 
+            [(ngModel)]="formCar.imageUrl"/>
+    </div>
+    
+    <div class="form-group full-width">
+        <label class="form-label">Opis</label>
+
+        <textarea
+            class="form-input form-textarea"
+            [(ngModel)]="formCar.description"
+            placeholder="Opis pojazdu..."
+            rows="4"
+        ></textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Badge</label>
+
+        <select
+            class="form-select"
+            [(ngModel)]="formCar.badge"
+        >
+            <option [ngValue]="null">Brak</option>
+            <option 
+                *ngFor="let badge of badges" 
+                [value]="badge">
+                {{ badge}}
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group full-width btn-space">
+    <label class="toggle-container">
+        <input
+            type="checkbox"
+            class="toggle-input"
+            [(ngModel)]="formCar.isFeatured"
+        />
+
+        <span class="toggle-slider"></span>
+
+        <span class="toggle-label ">
+            Wyświetlaj w polecanych pojazdach
+        </span>
+    </label>
+</div>
+
+<div class="modal-actions">
+    <button class="btn-save">Zapisz</button>
+    <button class="btn-cancel" (click)="close.emit()">Anuluj</button>
+</div>

@@ -7,7 +7,10 @@ import {
   faCalendar,
   faGauge,
   faChartBar,
-  faUser
+  faUser,
+  faBars,
+  faXmark,
+  faSlash
  } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 
@@ -25,4 +28,9 @@ export class AdminSidebar {
   faGauge = faGauge;
   faChartBar = faChartBar;
   faUser = faUser;
+
+  faBars = faBars;
+  faXmark = faXmark;
+
+  isMobileMenuOpen = false;
 }

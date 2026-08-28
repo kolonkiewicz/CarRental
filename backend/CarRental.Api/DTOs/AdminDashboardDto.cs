@@ -18,6 +18,8 @@ public class AdminReservationDto
     public string CarName { get; set; } = string.Empty;
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
+    public string PickupLocation { get; set; } = string.Empty;
+    public string ReturnLocation { get; set; } = string.Empty;
     public decimal TotalPrice { get; set; }
     public string Status { get; set; } = string.Empty;
 }

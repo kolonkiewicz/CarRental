@@ -5,15 +5,17 @@ export interface AdminDashboardDto {
   revenue: number;
   availableCars: number;
   totalCars: number;
-  recentReservations: AdminReservation[];
+  recentReservations: AdminReservationDto[];
 }
 
-export interface AdminReservation{
+export interface AdminReservationDto{
   reservationId: number,
   customerName: string,
   carName: string,
   startDate: string,
   endDate: string,
+  pickupLocation: string,
+  returnLocation: string,
   totalPrice: number;
   status: string;
 }

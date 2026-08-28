@@ -1,10 +1,19 @@
-<div class="car-card">
-  <!-- Image and overlay -->
-  <div class="card-media">
-    <img [src]="car().imageUrl" [alt]="car().brand" class="car-img" />
-    <div class="media-overlay"></div>
-    <span [class]="'badge ' + getBadgeClass(car().badge)">{{ car().badge }}</span>
-    <span class="badge-category">{{ car().category }}</span>
+<div 
+  class="car-card"
+  [class.car-unavailable]="!car().isAvailable">
+    <!-- Image and overlay -->
+    <div class="card-media">
+      <img [src]="car().imageUrl" [alt]="car().brand" class="car-img" />
+          <div class="media-overlay"></div>
+          @if (!car().isAvailable){
+            <span class="badge badge-unavailable">
+              NIEDOSTĘPNY
+            </span>
+          } @else if ( car().badge) {
+            <span [class]="'badge ' + getBadgeClass(car().badge)">{{ car().badge }}</span>
+          }
+      <span class="badge-category">{{ car().category }}</span>
+      
   </div>
 
   <!-- Card content -->

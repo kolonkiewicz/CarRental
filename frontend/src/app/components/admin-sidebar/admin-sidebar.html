@@ -45,3 +45,50 @@
         </button>
     </div>
 </aside>
+
+<button class="mobile-menu-button" (click)="isMobileMenuOpen = !isMobileMenuOpen">
+    <fa-icon [icon]="isMobileMenuOpen ? faXmark : faBars"></fa-icon>
+</button>
+
+<aside class="sidebar" [class.mobile-open]="isMobileMenuOpen">
+    <nav class="sidebar-nav">
+        <button 
+            class="nav-item"
+            routerLink="/admin/dashboard"
+            routerLinkActive="active">
+                    <fa-icon class="nav-icon" [icon]="faChartBar"></fa-icon>
+                    <span>Pulpit</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            routerLink="/admin/users"
+            routerLinkActive="active">
+                <fa-icon class="nav-icon" [icon]="faUser"></fa-icon>
+                <span>Użytkownicy</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            routerLink="/admin/reservations"
+            routerLinkActive="active">
+                <fa-icon class="nav-icon" [icon]="faCalendar"></fa-icon>
+                <span>Rezerwacje</span>
+        </button>
+
+        <button 
+            class="nav-item"
+            routerLink="/admin/fleet"
+            routerLinkActive="active">
+            <fa-icon class="nav-icon" [icon]="faGauge"></fa-icon>
+            <span>Flota</span>
+        </button>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button class="btn-logout">
+            <fa-icon class="nav-icon" [icon]="faRightFromBracket"></fa-icon>
+            <span>Wyloguj się</span>
+        </button>
+    </div>
+</aside>

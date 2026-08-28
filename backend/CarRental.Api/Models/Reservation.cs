@@ -9,6 +9,8 @@ public class Reservation
     public DateOnly EndDate { get; set; }
 
     public decimal TotalPrice { get; set; }
+    public string PickupLocation { get; set; } = string.Empty;
+    public string ReturnLocation { get; set;} = string.Empty;
 
     public int UserId { get; set; }
     public User User { get; set; } = null!;
