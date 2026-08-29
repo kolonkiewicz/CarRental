@@ -12,27 +12,24 @@
 
             <div class="form-group">
                 <label class="input-label">Imię</label>
-                <input type="text" class="custom-input" [(ngModel)]="profile.firstName">
+                <input type="text" class="custom-input" [(ngModel)]="profile.firstName" readonly>
             </div>
 
             <div class="form-group">
                 <label class="input-label">Nazwisko</label>
-                <input type="text" class="custom-input" [(ngModel)]="profile.lastName">
+                <input type="text" class="custom-input" [(ngModel)]="profile.lastName" readonly>
             </div>
 
             <div class="form-group">
                 <label class="input-label">Telefon</label>
-                <input type="tel" class="custom-input" [(ngModel)]="profile.phone">
+                <input type="tel" class="custom-input" [(ngModel)]="profile.phone" readonly>
             </div>
+
+            
 
             <div class="form-group">
-                <label class="input-label">Miasto</label>
-                <input type="text" class="custom-input" [(ngModel)]="profile.city">
-            </div>
-
-            <div class="form-group col-span-full">
                 <label class="input-label">Adres e-mail</label>
-                <input type="email" class="custom-input" [(ngModel)]="profile.email">
+                <input type="email" class="custom-input" [(ngModel)]="profile.email" readonly>
             </div>
 
         </div>
@@ -52,7 +49,7 @@
                     Nowe hasło
                 </label>
 
-                <input type="password" placeholder="Minimum 8 znaków" class="custom-input" [(ngModel)]="newPass">
+                <input type="password" placeholder="Minimum 8 znaków" class="custom-input" >
             </div>
 
 
@@ -61,16 +58,15 @@
                     Potwierdź hasło
                 </label>
 
-                <input type="password" placeholder="Powtórz nowe hasło" class="custom-input" [(ngModel)]="confirmPass">
+                <input type="password" placeholder="Powtórz nowe hasło" class="custom-input">
             </div>
 
 
-            @if (newPass && confirmPass && newPass !== confirmPass) {
+            
             <p class="error-text col-span-full">
-                Hasła nie są zgodne
+                
             </p>
-            }
-
+            
         </div>
 
     </div>
@@ -81,17 +77,17 @@
 
             Zapisz zmiany
 
-            @if (saved) {
+            
             <fa-icon [icon]="faCheck"></fa-icon>
-            }
+            
 
         </button>
 
-        @if (saved) {
+        
         <span class="success-message">
-            Zmiany zostały zapisane!
+            
         </span>
-        }
+        
 
     </div>
 

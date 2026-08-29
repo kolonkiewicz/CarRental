@@ -1,16 +1,16 @@
 <div class="welcome-card">
 
   <div class="avatar-box">
-    {{ profile.firstName.charAt(0) }}
+    {{ user?.firstName?.charAt(0) }}
   </div>
 
   <div class="welcome-info">
     <h1 class="welcome-title">
-      Witaj, {{ profile.firstName }}!
+      Witaj, {{ user?.firstName }}!
     </h1>
 
     <p class="welcome-subtitle">
-      {{ user.email }}
+      {{ user?.email }}
     </p>
   </div>
 

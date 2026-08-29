@@ -23,7 +23,7 @@ export class BreadcrumbsUniversal implements OnInit {
     const url = this.router.url;
 
     switch ( url ) {
-      case '/user/dashboard':
+      case '/dashboard':
         this.currentPage = 'Twój profil'
         break;
         

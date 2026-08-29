@@ -18,8 +18,13 @@
 
   <!-- Desktop Actions -->
   <div class="nav-actions">
-    <a routerLink="/auth" class="btn-login">Zaloguj się</a>
-    <a href="#" class="btn-reserve">Rezerwuj</a>
+    @if ( isLoggedIn ){
+      <a routerLink="/dashboard" class="btn-login">Moje konto</a>
+      <a class="btn-reserve" (click)="logout()" routerLink="/">Wyloguj się</a>
+    } @else {
+      <a routerLink="/auth" class="btn-login">Zaloguj się</a>
+      <a routerLink="/auth" class="btn-reserve">Rezerwuj</a>
+    }
   </div>
 
   <!-- Hamburger Button (Mobile) -->
@@ -34,7 +39,12 @@
       <a [routerLink]="item.route">{{ item.label }}</a>
     }
 
-    <a routerLink="/auth" class="mobile-login">Zaloguj się</a>
-    <a href="#" class="mobile-reserve">Rezerwuj</a>
+    @if (isLoggedIn){
+      <a routerLink="/auth" class="mobile-login">Moje Konto</a>
+      <a class="mobile-reserve" (click)="logout()" routerLink="/">Wyloguj się</a>
+    } @else {
+      <a routerLink="/auth" class="mobile-login">Zaloguj się</a>
+      <a routerLink="/auth" class="mobile-reserve">Rezerwuj</a>
+    }
   </div>
 }

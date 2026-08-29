@@ -6,6 +6,7 @@ using CarRental.Api.Data;
 using CarRental.Api.DTOs;
 using System.Diagnostics;
 using CarRental.Api.Services;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace CarRental.Controllers.Api
 {
@@ -58,12 +59,7 @@ namespace CarRental.Controllers.Api
 
             return Ok(new
             {
-                user.UserId,
-                user.FirstName,
-                user.Surname,
-                user.Email,
-                user.Phone,
-                user.Role
+                message = "Account created sucesfully"
             });
         }
 
@@ -94,7 +90,16 @@ namespace CarRental.Controllers.Api
 
             return Ok(new
             {
-                token
+                token,
+                user = new
+                {
+                    exisitngUser.UserId,
+                    exisitngUser.FirstName,
+                    exisitngUser.Surname,
+                    exisitngUser.Email,
+                    exisitngUser.Phone,
+                    exisitngUser.Role
+                }
             });
         }
     }

@@ -17,7 +17,9 @@
 @if (activeTab === 'reservations') {
 
   <div class="tab-content">
-    <app-reservation-card></app-reservation-card>
+    <app-reservation-card
+      [reservations]="myReservations"
+    ></app-reservation-card>
   </div>
 
 }

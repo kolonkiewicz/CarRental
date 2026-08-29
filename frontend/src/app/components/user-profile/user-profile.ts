@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,25 +16,20 @@ export class UserProfile {
 
   activeTab = 'profile';
 
-  profile = {
-    firstName: 'Jan',
-    lastName: 'Kowalski',
-    phone: '',
-    city: '',
-    email: 'jan@gmail.com'
-  };
+  private authService = inject(AuthService);
 
-  newPass = '';
-  confirmPass = '';
+  user = this.authService.getCurrentUser();
+
+  profile = {
+    firstName: this.user?.firstName ?? '',
+    lastName: this.user?.surname ?? '',
+    phone: this.user?.phone ?? '',
+    email: this.user?.email ?? ''
+  }
 
   saved = false;
 
-
   saveProfile(): void {
-
-    if (this.newPass && this.newPass !== this.confirmPass) {
-      return;
-    }
 
     this.saved = true;
 

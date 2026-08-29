@@ -109,16 +109,35 @@ namespace CarRental.Controllers.Api
                 return Unauthorized();
             }
 
+            var today = DateOnly.FromDateTime(DateTime.Today);
+
             var reservations = _context.Reservations
-                .Where( r => User.IsInRole("Admin") || r.UserId ==userId )
-                .Select(r => new
+                .Where( r => User.IsInRole("Admin") || r.UserId == userId )
+                .Select(r => new ReservationDto
                 {
                     ReservationId = r.ReservationId,
-                    UserId = r.UserId,
-                    CarId = r.CarId,
+                    
+                    Car = new ReservationCarDto
+                    {
+                        CarId = r.CarId,
+                        Brand = r.Car.Brand,
+                        Model = r.Car.Model,
+                        ImageUrl = r.Car.ImageUrl,
+                        PricePerDay = r.Car.PricePerDay
+                    },
+
                     StartDate = r.StartDate,
                     EndDate = r.EndDate,
+                    PickupLocation = r.PickupLocation,
+                    ReturnLocation = r.ReturnLocation,
+                    Status = r.StartDate <= today && r.EndDate >= today
+                            ? "Aktywna"
+                            : r.StartDate > today
+                                ? "Nadchodzące"
+                                : "Zakończona",
+
                     TotalPrice = r.TotalPrice
+
                 }).ToList();
             return Ok(reservations);
         }

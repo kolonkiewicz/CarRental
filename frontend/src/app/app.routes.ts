@@ -43,7 +43,7 @@ export const routes: Routes = [
         component: CarDetail
     },
     {
-        path:'user/dashboard',
+        path:'dashboard',
         component: UserDashboard
     },
     {

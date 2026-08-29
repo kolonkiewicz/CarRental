@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
@@ -12,6 +12,7 @@ import {
   faLock,
    faEye, 
    faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-auth',
@@ -61,7 +62,13 @@ export class Auth {
   faEye = faEye; 
   faEyeSlash = faEyeSlash;
 
-  constructor(private router: Router){}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef){}
+  
+  
+
 
   switchTab( tab: 'login' | 'register'): void{
     this.tab = tab;
@@ -103,25 +110,42 @@ export class Auth {
   }
 
   login(): void{
+    this.errors = {};
+
     if (!this.email){
-      this.email = 'Podaj adres e-mail.';
+      this.errors.email = 'Podaj adres e-mail.';
     }
 
     if (!this.password){
-      this.password = 'Podaj hasło.';
+      this.errors.password = 'Podaj hasło.';
     }
 
-    if (Object.keys(this.errors).length > 0){
+    if ( this.errors.email || this.errors.password ){
       return;
     }
 
-    console.log('LOGIN',{
+    this.authService.login({
       email: this.email,
-      password: this.password,
-      remember: this.remember
-    });
+      password: this.password
+    }).subscribe({
+      next: (response) => {
+        this.authService.saveLogin(response);
 
-    this.submitted = true;
+        this.submitted = true;
+        this.cdr.detectChanges();
+
+      }
+    ,
+    error: (error) => {
+      if (error.status === 401){
+        this.errors.email = 'Nieprawidłowy adres e-mail lub hasło';
+      } else{
+        this.errors.email = 'Wystąpił bład podczas logowania'
+      }
+      this.cdr.detectChanges();
+
+    }
+    });
   }
 
   register(): void{
@@ -156,16 +180,26 @@ export class Auth {
       return; 
     }
     
-    console.log('REGISTER',{
-      firstName: 
-      this.firstName, 
-      lastName: 
-      this.lastName,
-      phone: this.phone,
+    this.authService.register({
+      firstName: this.firstName,
+      surname: this.lastName,
       email: this.email,
-      password: this.password });
-
-      this.submitted = true;
+      phone: this.phone,
+      password: this.password
+    }).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        if (error.status === 409) {
+          this.errors.email = 'Konto z tym adresem e-mail już istnieje.';
+        }else{
+          this.errors.email = 'Wystąpił bład podczas rejestracji.';
+        }
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   goToHome(): void { 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,8 @@ import { RouterLink } from "@angular/router";
 })
 export class Navbar {
   menuOpen: boolean = false;
+
+  private authService = inject(AuthService)
 
   menuItems = [
     { label: 'Flota', route: '/fleet' },
@@ -20,5 +23,13 @@ export class Navbar {
 
   toggleMenu(): void{
     this.menuOpen = !this.menuOpen;
+  }
+
+  get isLoggedIn(): boolean{
+    return this.authService.isLoggedIn()
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

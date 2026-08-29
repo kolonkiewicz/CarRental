@@ -1,5 +1,6 @@
 using CarRental.Api.Data;
 using CarRental.Api.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace CarRental.Controllers.Api
 {
     [ApiController]
     [Route("api/admin/dashboard")]
+    [Authorize(Roles = "Admin")]
     public class AdminDashboardApiController : ControllerBase
     {
         private readonly CarRentalDbContext _context;
