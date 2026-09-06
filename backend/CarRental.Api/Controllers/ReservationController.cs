@@ -76,6 +76,8 @@ namespace CarRental.Controllers.Api
                 EndDate = dto.EndDate,
                 UserId = userId,
                 CarId = dto.CarId,
+                PickupLocation = dto.PickupLocation,
+                ReturnLocation = dto.ReturnLocation,
                 TotalPrice = totalprice
             };
 
@@ -138,6 +140,21 @@ namespace CarRental.Controllers.Api
 
                     TotalPrice = r.TotalPrice
 
+                }).ToList();
+            return Ok(reservations);
+        }
+
+        //GET    /api/reservations/car/{carId}
+        //kalendarz
+        [HttpGet("car/{carId}")]
+        public IActionResult GetCarReservations(int carId)
+        {
+            var reservations = _context.Reservations
+                .Where( r => r.CarId == carId )
+                .Select( r => new
+                {
+                    StartDate = r.StartDate,
+                    EndDate= r.EndDate
                 }).ToList();
             return Ok(reservations);
         }

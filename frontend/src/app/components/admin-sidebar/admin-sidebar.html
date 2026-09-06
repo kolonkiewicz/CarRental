@@ -86,7 +86,7 @@
     </nav>
 
     <div class="sidebar-footer">
-        <button class="btn-logout">
+        <button class="btn-logout" (click)="logout()" routerLink="/">
             <fa-icon class="nav-icon" [icon]="faRightFromBracket"></fa-icon>
             <span>Wyloguj się</span>
         </button>

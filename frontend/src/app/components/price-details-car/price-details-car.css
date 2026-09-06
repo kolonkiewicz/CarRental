@@ -107,16 +107,6 @@
     gap: 0.5rem;
 }
 
-.small-input-icon {
-    position: absolute;
-    left: 0.625rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0.875rem;
-    height: 0.875rem;
-    color: var(--color-primary);
-}
-
 .custom-date-input {
     width: 100%;
     background-color: var(--color-secondary);
@@ -285,3 +275,51 @@
     color: var(--color-primary);
     flex-shrink: 0;
 }
+
+.booking-error-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    border-radius: 8px;
+    background: rgba(220, 38, 38, 0.08);
+}
+
+.error-title {
+    margin: 0;
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.error-subtitle {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-container mat-datepicker-toggle {
+    order: 1;
+    position: absolute;
+    color: var(--color-primary);
+}
+
+.input-container mat-datepicker-toggle:hover {
+    color: var(--color-primary-hover);
+
+}
+
+.input-container input {
+    order: 2;
+    flex: 1;
+}
+

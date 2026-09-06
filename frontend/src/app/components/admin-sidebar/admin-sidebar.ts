@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -13,6 +13,7 @@ import {
   faSlash
  } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { AuthService } from '../../services/auth-service';
 
 type Tab = 'dashboard' | 'reservations' | 'fleet' | 'user';
 
@@ -33,4 +34,10 @@ export class AdminSidebar {
   faXmark = faXmark;
 
   isMobileMenuOpen = false;
+
+  authService = inject(AuthService);
+
+  logout(): void {
+    this.authService.logout();
+  }
 }

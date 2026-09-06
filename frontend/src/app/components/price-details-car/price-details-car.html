@@ -18,20 +18,64 @@
         </div>
     </div>
 
+    <div>
+        <label class="form-label">Lokalizacja zwrotu</label>
+        <div class="select-container">
+            <fa-icon [icon]="faLocationDot" class="input-icon-left"></fa-icon>
+            <select [(ngModel)]="returnLoc" class="custom-select">
+                @for (l of locations; track l) {
+                <option [value]="l" class="bg-black">{{ l }}</option>
+                }
+            </select>
+            <fa-icon [icon]="faChevronDown" class="input-icon-right"></fa-icon>
+        </div>
+    </div>
+
     <div class="dates-grid">
         <div>
             <label class="form-label">Odbiór</label>
             <div class="input-container">
-                <fa-icon [icon]="faCalendar" class="small-input-icon"></fa-icon>
-                <input type="date" [(ngModel)]="pickupDate" (ngModelChange)="calculatePrice()" [min]="getToday()" class="custom-date-input" />
+                <mat-datepicker-toggle class="calendaricon"
+                    matSuffix
+                    [for]="pickupPicker"
+                ></mat-datepicker-toggle>
+
+                <input
+                    matInput
+                    [matDatepicker]="pickupPicker"
+                    [matDatepickerFilter]="dateFilter"
+                    [(ngModel)]="pickupDate"
+                    (ngModelChange)="calculatePrice()"
+                    class="custom-date-input"
+                />
+
+                
+
+                <mat-datepicker #pickupPicker></mat-datepicker>
+
             </div>
         </div>
 
         <div>
             <label class="form-label">Zwrot</label>
             <div class="input-container">
-                <fa-icon [icon]="faCalendar" class="small-input-icon"></fa-icon>
-                <input type="date" [(ngModel)]="returnDate" (ngModelChange)="calculatePrice()" [min]="pickupDate" class="custom-date-input" />
+
+                <mat-datepicker-toggle class="calendaricon"
+                    matSuffix
+                    [for]="returnPicker">
+                </mat-datepicker-toggle>
+
+                <input
+                    matInput
+                    [matDatepicker]="returnPicker"
+                    [matDatepickerFilter]="dateFilter"
+                    [(ngModel)]="returnDate"
+                    (ngModelChange)="calculatePrice()"
+                    class="custom-date-input"
+                />
+
+                
+                <mat-datepicker #returnPicker></mat-datepicker>
             </div>
         </div>
     </div>
@@ -70,13 +114,25 @@
     <p class="success-subtitle">Potwierdzenie wysłano na e-mail</p>
 </div>
 } @else {
-<button (click)="handleBooking()" [disabled]="!car.available" class="booking-btn"
-    [ngClass]="car.available ? 'btn-available' : 'btn-disabled'">
-    {{ car.available ? 'Zarezerwuj teraz' : 'Pojazd niedostępny' }}
-    @if (car.available) {
-    <fa-icon [icon]="faArrowRight" class="arrow-icon"></fa-icon>
+    @if (bookingError) {
+        <div class="booking-error-box">
+            <p class="error-title">Rezerwacja nie powiodła się</p>
+            <p class="error-subtitle">{{ bookingError }}</p>
+        </div>
     }
-</button>
+    <button
+        (click)="handleBooking()"
+        [disabled]="!car.available"
+        class="booking-btn"
+        [ngClass]="car.available ? 'btn-available' : 'btn-disabled'">
+
+        {{ car.available ? 'Zarezerwuj teraz' : 'Pojazd niedostępny' }}
+
+        @if (car.available) {
+            <fa-icon [icon]="faArrowRight" class="arrow-icon"></fa-icon>
+        }
+    </button>
+
 }
 
 <div class="perks-list">

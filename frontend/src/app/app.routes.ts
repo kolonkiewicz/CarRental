@@ -12,6 +12,8 @@ import { AdminMainPage } from './components/admin-main-page/admin-main-page';
 import { AdminUser } from './components/admin-user/admin-user';
 import { AdminReservation } from './components/admin-reservation/admin-reservation';
 import { AdminFleet } from './components/admin-fleet/admin-fleet';
+import { authGuard } from './guards/auth-guard';
+import { adminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
     {
@@ -44,11 +46,13 @@ export const routes: Routes = [
     },
     {
         path:'dashboard',
-        component: UserDashboard
+        component: UserDashboard,
+        canActivate: [authGuard]
     },
     {
         path:'admin',
         component: AdminDashboard,
+        canActivate: [adminGuard],
         children: [
             {
                 path: '',

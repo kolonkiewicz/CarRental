@@ -131,8 +131,11 @@ export class Auth {
       next: (response) => {
         this.authService.saveLogin(response);
 
-        this.submitted = true;
-        this.cdr.detectChanges();
+        if ( response.user.role === 'Admin'){
+          this.router.navigate(['/admin']);
+        }else{
+          this.router.navigate(['/dashboard'])
+        }
 
       }
     ,

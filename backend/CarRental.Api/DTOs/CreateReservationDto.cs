@@ -7,4 +7,8 @@ public class CreateReservationDto
     public DateOnly EndDate { get; set; }
 
     public int CarId { get; set; }
+
+    public string PickupLocation { get; set; } = string.Empty;
+
+    public string ReturnLocation { get; set; } = string.Empty;
 }
