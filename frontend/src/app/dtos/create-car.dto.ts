@@ -1,5 +1,4 @@
-export interface Car{
-  id: number;
+export interface CreateCarDto {
   brand: string;
   model: string;
   category: string;
@@ -12,9 +11,7 @@ export interface Car{
   power: number;
   range: string;
   pricePerDay: number;
-  rating: number;
-  reviewsCount: number;
   isFeatured: boolean;
   isAvailable: boolean;
-  badge?: string | null;
+  badge: string | null;
 }

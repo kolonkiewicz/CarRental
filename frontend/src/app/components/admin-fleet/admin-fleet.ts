@@ -32,13 +32,20 @@ export class AdminFleet implements OnInit{
   cars: Car[] = [];
 
   ngOnInit(): void {
+    this.loadCars();
+  }
+
+  loadCars(): void {
+
     this.carService.getCars().subscribe({
-      next: (cars) =>{
-        this.cars = cars;
-        this.filteredCars = cars;
+      next: (cars) => {
+
+        this.cars = [...cars];
+        this.filteredCars = [...cars];
+
         this.cdr.detectChanges();
       },
-      error: (error) =>{
+      error: (error) => {
         console.log('error loading cars for filter', error);
       }
     });
@@ -91,6 +98,6 @@ export class AdminFleet implements OnInit{
   closeCarModel():void {
     this.showCarModel = false;
     this.selectedCar = undefined;
+
   }
-  
 }

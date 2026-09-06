@@ -49,6 +49,11 @@ namespace CarRental.Controllers.Api
                 return NotFound("Car not found.");
             }
 
+            if (!car.IsAvailable)
+            {
+                return BadRequest("Car is currently not available");
+            }
+
             var days = (dto.EndDate.ToDateTime(TimeOnly.MinValue)
                 - dto.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
 

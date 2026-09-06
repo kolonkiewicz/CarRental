@@ -79,7 +79,8 @@
     <div class="modal-card" (click)="$event.stopPropagation()">
         <app-admin-car-form
             [car]="selectedCar"
-            (close)="closeCarModel()"    
+            (close)="closeCarModel()"  
+            (saved)="loadCars()"  
         ></app-admin-car-form>
     </div>
 </div>

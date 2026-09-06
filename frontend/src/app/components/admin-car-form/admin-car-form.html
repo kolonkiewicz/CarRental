@@ -155,9 +155,28 @@
             Wyświetlaj w polecanych pojazdach
         </span>
     </label>
+    <label class="toggle-container btn-space">
+        <input
+            type="checkbox"
+            class="toggle-input"
+            [(ngModel)]="formCar.isAvailable"
+        />
+
+        <span class="toggle-slider"></span>
+
+        <span class="toggle-label ">
+            Pojazd dostępny na wynajem
+        </span>
+    </label>
+    @if (showValidationError) {
+            <span class="error-message">
+                Wypełnij wszystkie pola
+            </span>
+        }
+    
 </div>
 
 <div class="modal-actions">
-    <button class="btn-save">Zapisz</button>
+    <button class="btn-save" (click)="saveCar()">Zapisz</button>
     <button class="btn-cancel" (click)="close.emit()">Anuluj</button>
 </div>

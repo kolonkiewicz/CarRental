@@ -24,7 +24,7 @@ export class CarCard {
   faGasPump = faGasPump;
   faGauge = faGauge;
 
-  getBadgeClass(badge: string | undefined): string {
+  getBadgeClass(badge: string | undefined | null): string {
     switch (badge) {
       case 'Bestseller':
         return 'badge-bestseller';

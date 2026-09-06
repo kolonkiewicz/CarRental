@@ -27,7 +27,7 @@ export class CarDetailHeader implements OnInit{
   rating = 0;
   isAvailable = false;
   reviewsCount = 0;
-  badge? = '';
+  badge?: string | null;
   
     ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -52,7 +52,7 @@ export class CarDetailHeader implements OnInit{
     });
   }
 
-  getBadgeClass(badge: string | undefined): string {
+  getBadgeClass(badge: string | undefined | null): string {
     switch (badge) {
       case 'Bestseller':
         return 'badge-bestseller';

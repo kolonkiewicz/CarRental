@@ -43,9 +43,7 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = !c.Reservations.Any( r =>
-                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
-                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
+                    IsAvailable = c.IsAvailable,
                     Badge = c.Badge
                 }).ToList();
             return Ok(cars);
@@ -75,9 +73,7 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = !c.Reservations.Any( r =>
-                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
-                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
+                    IsAvailable = c.IsAvailable,
                     Badge = c.Badge
                 }).FirstOrDefault();
             if (car == null)
@@ -96,9 +92,19 @@ namespace CarRental.Controllers.Api
             {
                 Brand = dto.Brand,
                 Model = dto.Model,
-                Year = dto.Year,
+                Category = dto.Category,
+                ImageUrl = dto.ImageUrl,
                 Description = dto.Description,
-                PricePerDay = dto.PricePerDay
+                Year = dto.Year,
+                Seats = dto.Seats,
+                FuelType = dto.FuelType,
+                Transmission = dto.Transmission,
+                Power = dto.Power,
+                Range = dto.Range,
+                PricePerDay = dto.PricePerDay,
+                IsFeatured = dto.IsFeatured,
+                IsAvailable = dto.IsAvailable,
+                Badge = dto.Badge
             };
 
             _context.Cars.Add(car);
@@ -125,10 +131,20 @@ namespace CarRental.Controllers.Api
 
             car.Brand = dto.Brand;
             car.Model = dto.Model;
-            car.Year = dto.Year;
+            car.Category = dto.Category;
+            car.ImageUrl = dto.ImageUrl;
             car.Description = dto.Description;
+            car.Year = dto.Year;
+            car.Seats = dto.Seats;
+            car.FuelType = dto.FuelType;
+            car.Transmission = dto.Transmission;
+            car.Power = dto.Power;
+            car.Range = dto.Range;
             car.PricePerDay = dto.PricePerDay;
-
+            car.IsFeatured = dto.IsFeatured;
+            car.IsAvailable = dto.IsAvailable;
+            car.Badge = dto.Badge;
+            
             _context.SaveChanges();
 
             return Ok(car);
@@ -242,9 +258,7 @@ namespace CarRental.Controllers.Api
                     Rating = c.Rating,
                     ReviewsCount = c.ReviewsCount,
                     IsFeatured = c.IsFeatured,
-                    IsAvailable = !c.Reservations.Any( r =>
-                        r.StartDate <= DateOnly.FromDateTime(DateTime.Today) &&
-                        r.EndDate >= DateOnly.FromDateTime(DateTime.Today)),
+                    IsAvailable = c.IsAvailable,
                     Badge = c.Badge
                 })
                 .ToListAsync();

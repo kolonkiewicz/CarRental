@@ -1,3 +1,5 @@
+using Microsoft.Net.Http.Headers;
+
 namespace CarRental.Api.Models;
 
 public class Car
@@ -33,6 +35,8 @@ public class Car
     public int ReviewsCount { get; set; }
 
     public bool IsFeatured { get; set; } = false;
+    
+    public bool IsAvailable { get; set; } = true;
 
     public string? Badge { get; set; }
     public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
